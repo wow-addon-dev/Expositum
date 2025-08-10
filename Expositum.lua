@@ -14,7 +14,7 @@ local EXPANSION_NAMES = {
 	[10] = "The War Within",
 }
 
-local function AddRightLine(tooltip, leftText, rightText)
+local function AddDoubleLine(tooltip, leftText, rightText)
 	for i = 1, tooltip:NumLines() do
 		local left = _G[tooltip:GetName().."TextLeft"..i]
 
@@ -46,8 +46,9 @@ local function ProcessTooltip(tooltip, itemLink)
 	local expansionName = GetExpansionName(expansionID)
 
 	tooltip:AddLine(" ")
-	AddRightLine(tooltip, "Erweiterung", expansionName .. " (Patch " .. (expansionID + 1) .. ")")
-	AddRightLine(tooltip, "Kategorie", itemType .. " (" .. itemSubType .. ")")
+	AddDoubleLine(tooltip, "Expansion", "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r")
+	--AddDoubleLine(tooltip, "Expansion", "|cnWHITE_FONT_COLOR:" .. expansionName .. " (Patch " .. (expansionID + 1) .. ")|r")
+	AddDoubleLine(tooltip, "Category", "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
 
 	tooltip:Show()
 end
