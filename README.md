@@ -5,24 +5,10 @@
 
 *Reveal an item's origin and purpose*
 
-Expositum is an addon that provides a detailed insight into wealth progression by tracking gold and currencies* across all characters and displaying them over time.
-
-*\* In the game versions 'Classic' and 'Mists of Pandaria - Classic' only gold is tracked.*
+Expositum is an addon that provides additional information about items in the tooltip.
 
 ### Features
 
-*   Gold and currency overview with a daily and monthly view
-*   Individual saving and view for each character
-*   Separate display of character and warband currencies
-*   Display of the sum of all currencies across all characters
-*   Minimap button to open the gold and currency overview and the options
-*   Supported languages: English, German, Russian
-*   Supported versions: 'Classic', 'Mists of Pandaria - Classic' and 'Retail'
+*   Displays the corresponding extension of the item
+*   Displays the item category (e.g. crafting materials, clothing, etc.)
 
-### Quick Start
-
-To open the addon option window, type `/aur` or `/Aurarium` into your chat and hit enter. To open the gold and currency overview, use the following command: `/aur overview` or `/Aurarium overview`
-
-### Translation Support
-
-If you would like to help me with the translation, I would be very pleased.

@@ -1,0 +1,19 @@
+## Interface: 110200
+## Title: Expositum
+## Author: diomsg (Diom-Antonidas EU)
+
+## Version: @project-version@
+## IconTexture: Interface\AddOns\Expositum\media\icon.blp
+## LoadOnDemand: 0
+## DefaultState: enabled
+
+## Notes: This addon provides additional information about items in the tooltip.
+
+## X-Flavor: Retail
+## X-BuildDate: @build-date@
+## X-E-Mail: feedback@wow-addon.dev
+## X-Github: https://github.com/wow-addon-dev/expositum
+## X-Curseforge: https://www.curseforge.com/wow/addons/expositum
+## X-Wago: https://addons.wago.io/addons/expositum
+
+Expositum.lua
