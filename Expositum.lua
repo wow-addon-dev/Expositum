@@ -1,18 +1,4 @@
-local addonName, EXT = ...
-
-local EXPANSION_NAMES = {
-	[0]  = "Classic",
-	[1]  = "The Burning Crusade",
-	[2]  = "Wrath of the Lich King",
-	[3]  = "Cataclysm",
-	[4]  = "Mists of Pandaria",
-	[5]  = "Warlords of Draenor",
-	[6]  = "Legion",
-	[7]  = "Battle for Azeroth",
-	[8]  = "Shadowlands",
-	[9]  = "Dragonflight",
-	[10] = "The War Within",
-}
+local _, EXT = ...
 
 local function AddDoubleLine(tooltip, leftText, rightText)
 	for i = 1, tooltip:NumLines() do
@@ -31,8 +17,8 @@ local function AddDoubleLine(tooltip, leftText, rightText)
 end
 
 local function GetExpansionName(expansionID)
-	if expansionID and EXPANSION_NAMES[expansionID] then
-		return EXPANSION_NAMES[expansionID]
+	if expansionID and EXT.EXPANSION_NAMES[expansionID] then
+		return EXT.EXPANSION_NAMES[expansionID]
 	end
 
 	return nil
