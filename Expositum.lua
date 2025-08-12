@@ -29,6 +29,8 @@ local function ProcessTooltip(tooltip, itemLink)
 
 	local _, _, _, _, _, itemType, itemSubType, _, _, _, _, classID, subclassID, _, expansionID = C_Item.GetItemInfo(itemLink)
 
+	if expansionID == nil then return end
+
 	local expansionName = GetExpansionName(expansionID)
 
 	tooltip:AddLine(" ")

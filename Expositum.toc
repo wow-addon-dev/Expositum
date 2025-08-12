@@ -16,4 +16,5 @@
 ## X-Curseforge: https://www.curseforge.com/wow/addons/expositum
 ## X-Wago: https://addons.wago.io/addons/expositum
 
+Expositum.xml
 Expositum.lua
