@@ -8,6 +8,10 @@
 ## DefaultState: enabled
 
 ## Notes: This addon provides additional information about items in the tooltip.
+## Notes-deDE: Dieses Addon stellt zusätzliche Informationen zu Gegenständen im Tooltip bereit.
+
+## LoadSavedVariablesFirst: 1
+## SavedVariables: Expositum_Options
 
 ## X-Flavor: Retail
 ## X-BuildDate: @build-date@
