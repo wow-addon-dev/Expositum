@@ -1,3 +1,6 @@
+**v1.3 (2025-08-17)**
+- Added: TOC version for patch 11.2.5 [retail]
+
 **v1.2 (2025-08-14)**
 - Added: Options menu to customize the tooltip
 - Added: Language support
