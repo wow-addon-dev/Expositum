@@ -1,0 +1,63 @@
+local _, EXT = ...
+
+local L = EXT.localization
+
+local Tooltip = {}
+
+----------------------
+--- Local funtions ---
+----------------------
+
+local function AddDoubleLine(tooltip, leftText, rightText)
+	for i = 1, tooltip:NumLines() do
+		local left = _G[tooltip:GetName().."TextLeft"..i]
+
+		if left and left:GetText() == leftText then
+			local right = _G[tooltip:GetName().."TextRight"..i]
+
+			if right then right:SetText(rightText) end
+
+			return
+    	end
+	end
+
+	tooltip:AddDoubleLine(leftText, rightText)
+end
+
+local function GetExpansionName(expansionID)
+	if expansionID and EXT.EXPANSION_NAMES[expansionID] then
+		return EXT.EXPANSION_NAMES[expansionID]
+	end
+
+	return nil
+end
+
+---------------------
+--- Main funtions ---
+---------------------
+
+function Tooltip:ProcessTooltip(tooltip, itemLink)
+	if not itemLink then return end
+
+	local _, _, _, _, _, itemType, itemSubType, _, _, _, _, classID, subclassID, _, expansionID = C_Item.GetItemInfo(itemLink)
+
+	if expansionID == nil then return end
+
+	local expansionName = GetExpansionName(expansionID)
+
+	if EXT.data.options["expansion"] and EXT.data.options["category"] and EXT.data.options["blank-line"] then
+		tooltip:AddLine(" ")
+	end
+
+	if EXT.data.options["expansion"] then
+		AddDoubleLine(tooltip, L["tooltip.expansion"], "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r")
+	end
+
+	if EXT.data.options["category"] then
+		AddDoubleLine(tooltip, L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
+	end
+
+	tooltip:Show()
+end
+
+EXT.tooltip = Tooltip
