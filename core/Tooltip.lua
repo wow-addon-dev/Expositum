@@ -45,7 +45,7 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 
 	local expansionName = GetExpansionName(expansionID)
 
-	if EXT.data.options["expansion"] and EXT.data.options["category"] and EXT.data.options["item-level"] and EXT.data.options["blank-line"] then
+	if (EXT.data.options["expansion"] or EXT.data.options["category"] or EXT.data.options["item-level"]) and EXT.data.options["blank-line"] then
 		tooltip:AddLine(" ")
 	end
 
