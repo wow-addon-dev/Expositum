@@ -39,13 +39,13 @@ end
 function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if not itemLink then return end
 
-	local _, _, _, _, _, itemType, itemSubType, _, _, _, _, classID, subclassID, _, expansionID = C_Item.GetItemInfo(itemLink)
+	local _, _, _, itemLevel, _, itemType, itemSubType, _, _, _, _, classID, subclassID, _, expansionID = C_Item.GetItemInfo(itemLink)
 
 	if expansionID == nil then return end
 
 	local expansionName = GetExpansionName(expansionID)
 
-	if EXT.data.options["expansion"] and EXT.data.options["category"] and EXT.data.options["blank-line"] then
+	if EXT.data.options["expansion"] and EXT.data.options["category"] and EXT.data.options["item-level"] and EXT.data.options["blank-line"] then
 		tooltip:AddLine(" ")
 	end
 
@@ -55,6 +55,10 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 
 	if EXT.data.options["category"] then
 		AddDoubleLine(tooltip, L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
+	end
+
+	if EXT.data.options["item-level"] then
+		AddDoubleLine(tooltip, L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
 
 	tooltip:Show()

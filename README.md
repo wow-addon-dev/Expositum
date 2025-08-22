@@ -5,12 +5,13 @@
 
 *Reveal an item's origin and purpose.*
 
-Expositum is an addon that provides additional information about items in the tooltip. 
+Expositum is an addon that provides additional information about items in the tooltip.
 
 ### Features
 
 *   Displays the corresponding expansion of the item (optional)
 *   Displays the item category (e.g. crafting materials, clothing, etc.) (optional)
+*   Displays the item level (optional)
 *   Supported languages: English, German, Russian
 
 ### Quick Start

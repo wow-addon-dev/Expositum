@@ -15,6 +15,7 @@ L["addon.version"] = "Version"
 
 L["tooltip.expansion"] = "Expansion"
 L["tooltip.category"] = "Category"
+L["tooltip.item-level"] = "Item Level"
 
 -- Options
 
@@ -38,6 +39,8 @@ L["options.expansion.name"] = "Show Expansion"
 L["options.expansion.tooltip"] = "Displays the corresponding expansion for items in the tooltip."
 L["options.category.name"] = "Show Category"
 L["options.category.tooltip"] = "Displays the corresponding category for items in the tooltip."
+L["options.item-level.name"] = "Show Item Level"
+L["options.item-level.tooltip"] = "Displays the corresponding item level for items in the tooltip."
 L["options.blank-line.name"] = "Insert Blank Line"
 L["options.blank-line.tooltip"] = "Inserts a blank line in the tooltip before displaying the extension and category."
 

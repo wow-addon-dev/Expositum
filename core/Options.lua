@@ -177,6 +177,16 @@ function Options:Initialize()
         Settings.CreateCheckbox(category, setting, tooltip)
     end
 
+		do
+        local name = L["options.item-level.name"]
+        local tooltip = L["options.item-level.tooltip"]
+        local variable = "item-level"
+        local defaultValue = true
+
+        local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTable, Settings.VarType.Boolean, name, defaultValue)
+        Settings.CreateCheckbox(category, setting, tooltip)
+    end
+
 	do
         local name = L["options.blank-line.name"]
         local tooltip = L["options.blank-line.tooltip"]
