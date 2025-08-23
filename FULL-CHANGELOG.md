@@ -1,3 +1,6 @@
+**v1.5 (2025-08-23)**
+- Added: Tooltip extended to include item level
+
 **v1.4 (2025-08-21)**
 - Minor code adjustments
 
