@@ -25,9 +25,9 @@ function Options:Initialize()
 		header:SetPoint("TOPLEFT", canvasFrame, 7, -22)
 		header:SetText(addonName)
 
-		local scrollFrame = CreateFrame("ScrollFrame", nil, canvasFrame, "QuestScrollFrameTemplate")
-		scrollFrame:SetPoint("TOPLEFT", canvasFrame, "TOPLEFT", 0, -54)
-		scrollFrame:SetPoint("BOTTOMRIGHT", canvasFrame, "BOTTOMRIGHT", -29, 0)
+		local scrollFrame = CreateFrame("ScrollFrame", nil, canvasFrame, "ScrollFrameTemplate")
+		scrollFrame:SetPoint("TOPLEFT", canvasFrame, "TOPLEFT", 0, -58)
+		scrollFrame:SetPoint("BOTTOMRIGHT", canvasFrame, "BOTTOMRIGHT", -26, 0)
 
 		local scrollView = CreateFrame("Frame")
 		scrollView:SetSize(1, 1)
@@ -73,8 +73,8 @@ function Options:Initialize()
 
         helpFrame.divider = helpFrame:CreateTexture(nil, "BACKGROUND")
         helpFrame.divider:SetPoint("TOP", helpFrame.text, "BOTTOM", 0, -10)
-        helpFrame.divider:SetSize(550, 6)
-        helpFrame.divider:SetAtlas("RecipeList-Divider")
+        --helpFrame.divider:SetSize(550, 6)
+        helpFrame.divider:SetAtlas("tournamentarena-winnerline", true)
         helpFrame.divider:SetDesaturated(true)
 
         local buttonReset = CreateFrame("Button", nil, helpFrame, "UIPanelButtonTemplate")
@@ -97,7 +97,7 @@ function Options:Initialize()
 			GameTooltip:Hide()
         end)
 
-        helpFrame:SetHeight(helpFrame.text:GetStringHeight() + 48 + 30)
+        helpFrame:SetHeight(helpFrame.text:GetStringHeight() + 43 + 30)
 
         local aboutFrame = CreateFrame("Frame", nil, scrollView, "BackdropTemplate")
         aboutFrame:SetPoint("TOPLEFT", helpFrame, "BOTTOMLEFT", 0, -30)
@@ -119,8 +119,8 @@ function Options:Initialize()
 
         aboutFrame.divider = aboutFrame:CreateTexture(nil, "BACKGROUND")
         aboutFrame.divider:SetPoint("TOP", aboutFrame.text , "BOTTOM", 0, -10)
-        aboutFrame.divider:SetSize(550, 6)
-        aboutFrame.divider:SetAtlas("RecipeList-Divider")
+        --aboutFrame.divider:SetSize(550, 6)
+        aboutFrame.divider:SetAtlas("tournamentarena-winnerline", true)
         aboutFrame.divider:SetDesaturated(true)
 
         local buttonGithub = CreateFrame("Button", nil, aboutFrame, "UIPanelButtonTemplate")
@@ -143,7 +143,7 @@ function Options:Initialize()
 			GameTooltip:Hide()
         end)
 
-        aboutFrame:SetHeight(aboutFrame.text :GetStringHeight() + 48 + 30)
+        aboutFrame:SetHeight(aboutFrame.text :GetStringHeight() + 43 + 30)
 
 		local lastLine = aboutFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
         lastLine:SetPoint("TOPLEFT", aboutFrame, "BOTTOMLEFT", 0, -10)
@@ -157,15 +157,17 @@ function Options:Initialize()
 
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.general"]))
 
-    do
-        local name = L["options.expansion.name"]
-        local tooltip = L["options.expansion.tooltip"]
-        local variable = "expansion"
-        local defaultValue = true
+	if EXT.GAME_TYPE_RETAIL then
+		do
+			local name = L["options.expansion.name"]
+			local tooltip = L["options.expansion.tooltip"]
+			local variable = "expansion"
+			local defaultValue = true
 
-        local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTable, Settings.VarType.Boolean, name, defaultValue)
-        Settings.CreateCheckbox(category, setting, tooltip)
-    end
+			local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTable, Settings.VarType.Boolean, name, defaultValue)
+			Settings.CreateCheckbox(category, setting, tooltip)
+		end
+	end
 
 	do
         local name = L["options.category.name"]
@@ -177,7 +179,7 @@ function Options:Initialize()
         Settings.CreateCheckbox(category, setting, tooltip)
     end
 
-		do
+	do
         local name = L["options.item-level.name"]
         local tooltip = L["options.item-level.tooltip"]
         local variable = "item-level"

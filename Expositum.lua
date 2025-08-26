@@ -38,23 +38,39 @@ function expositumFrame:ADDON_LOADED(_, addOnName)
         Dialog:Initialize()
         Options:Initialize()
 
-		TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
-			if not tooltip or not data then return end
-
-			local link = (data.hyperlink or data.link)
-
-			if not link and data.guid and C_Item.GetItemLinkByGUID then
-			  link = C_Item.GetItemLinkByGUID(data.guid)
+		if EXT.GAME_TYPE_CLASSIC or EXT.GAME_TYPE_MISTS then
+			local function OnTooltipSetItem(tooltip)
+				local _, link = tooltip:GetItem()
+				if link then
+					Tooltip:ProcessTooltipClassic(tooltip, link)
+				end
 			end
 
-			if not link and data.id then
-			  link = ("item:%d"):format(data.id)
-			end
+			GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+			ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+			if ShoppingTooltip1 then ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
+			if ShoppingTooltip2 then ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
+		elseif EXT.GAME_TYPE_RETAIL then
+			TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
+				if not tooltip or not data then return end
 
-			if link then
-				Tooltip:ProcessTooltip(tooltip, link)
-			end
-		end)
+				local link = (data.hyperlink or data.link)
+
+				if not link and data.guid and C_Item.GetItemLinkByGUID then
+					link = C_Item.GetItemLinkByGUID(data.guid)
+				end
+
+				if not link and data.id then
+					link = ("item:%d"):format(data.id)
+				end
+
+				if link then
+					Tooltip:ProcessTooltip(tooltip, link)
+				end
+			end)
+		else
+			Utils:PrintDebug("Unsupported game type.")
+		end
 
         Utils:PrintDebug("Addon fully loaded.")
     end

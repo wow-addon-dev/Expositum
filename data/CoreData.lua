@@ -12,3 +12,8 @@ EXT.LINK_CURSEFORGE = C_AddOns.GetAddOnMetadata(addonName, "X-Curseforge")
 EXT.LINK_WAGO = C_AddOns.GetAddOnMetadata(addonName, "X-Wago")
 
 EXT.MEDIA_PATH = "Interface\\AddOns\\" .. addonName .. "\\media\\"
+
+EXT.GAME_TYPE_CLASSIC = (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC)
+---@diagnostic disable-next-line: undefined-global
+EXT.GAME_TYPE_MISTS = (WOW_PROJECT_ID == WOW_PROJECT_MISTS_CLASSIC)
+EXT.GAME_TYPE_RETAIL = (WOW_PROJECT_ID == WOW_PROJECT_MAINLINE)

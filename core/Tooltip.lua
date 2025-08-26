@@ -36,6 +36,26 @@ end
 --- Main funtions ---
 ---------------------
 
+function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
+	if not itemLink then return end
+
+	local _, _, _, itemLevel, _, itemType, itemSubType = C_Item.GetItemInfo(itemLink)
+
+	if (EXT.data.options["category"] or EXT.data.options["item-level"]) and EXT.data.options["blank-line"] then
+		tooltip:AddLine(" ")
+	end
+
+	if EXT.data.options["category"] then
+		AddDoubleLine(tooltip, L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
+	end
+
+	if EXT.data.options["item-level"] then
+		AddDoubleLine(tooltip, L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
+	end
+
+	tooltip:Show()
+end
+
 function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if not itemLink then return end
 
