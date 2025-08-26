@@ -1,3 +1,7 @@
+**v1.6 (2025-08-26)**
+- Added: Support for 'Classic'
+- Added: Support for 'Mists of Pandaria - Classic'
+
 **v1.5 (2025-08-23)**
 - Added: Tooltip extended to include item level
 
