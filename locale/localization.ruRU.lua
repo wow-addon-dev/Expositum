@@ -10,14 +10,14 @@ L["addon.version"] = "Версия"
 
 -- Addon specific
 
-L["tooltip.expansion"] = "Expansion"
-L["tooltip.category"] = "Category"
-L["tooltip.item-level"] = "Item Level"
+L["tooltip.expansion"] = "Дополнение"
+L["tooltip.category"] = "Категория"
+L["tooltip.item-level"] = "Уровень предмета"
 
 -- Options
 
 L["info.description"] = "Описание"
-L["info.description.text"] = "Expositum is an addon that provides additional information about items in the tooltip.\n\nЕсли Вы нашли ошибку или у Вас есть вопросы по аддону, то можете связаться со мной через Github. Вы также можете помочь мне с переводом через Github. Спасибо."
+L["info.description.text"] = "Expositum - это дополнение, которое предоставляет дополнительную информацию о предметах во всплывающей подсказке.\n\nЕсли Вы нашли ошибку или у Вас есть вопросы по аддону, то можете связаться со мной через Github. Вы также можете помочь мне с переводом через Github. Спасибо."
 
 L["info.help"] = "Помощь"
 L["info.help.text"] = "В случае возникновения проблем после обновления, Вы можете сбросить настройки здесь."
@@ -32,14 +32,14 @@ L["info.about.text"] = "|cnGOLD_FONT_COLOR:Версия игры:|r %s\n|cnGOLD_
 L["options"] = "Параметры"
 L["options.general"] = "Общие параметры"
 
-L["options.expansion.name"] = "Show Expansion"
-L["options.expansion.tooltip"] = "Displays the corresponding expansion for items in the tooltip."
-L["options.category.name"] = "Show Category"
-L["options.category.tooltip"] = "Displays the corresponding category for items in the tooltip."
-L["options.item-level.name"] = "Show Item Level"
-L["options.item-level.tooltip"] = "Displays the corresponding item level for items in the tooltip."
-L["options.blank-line.name"] = "Insert Blank Line"
-L["options.blank-line.tooltip"] = "Inserts a blank line in the tooltip before displaying the extension and category."
+L["options.expansion.name"] = "Показывать дополнение WoW"
+L["options.expansion.tooltip"] = "Отображает соответствующее дополнение для предметов во всплывающей подсказке."
+L["options.category.name"] = "Показывать категорию"
+L["options.category.tooltip"] = "Отображает соответствующую категорию для предметов во всплывающей подсказке."
+L["options.item-level.name"] = "Показывать уровень предмета"
+L["options.item-level.tooltip"] = "Отображает соответствующий уровень предмета для предметов во всплывающей подсказке.."
+L["options.blank-line.name"] = "Вставить пустую строку"
+L["options.blank-line.tooltip"] = "Вставляет пустую строку в подсказку перед отображением расширения и категории."
 
 L["options.other"] = "Другие параметры"
 L["options.debug-mode.name"] = "Режим отладки"
