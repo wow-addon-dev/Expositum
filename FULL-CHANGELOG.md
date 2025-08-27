@@ -1,3 +1,6 @@
+**v1.7 (2025-08-27)**
+- Updated: ruRU localization (#1 - Thanks to Hollicsh) [all versions]
+
 **v1.6 (2025-08-26)**
 - Added: Support for 'Classic'
 - Added: Support for 'Mists of Pandaria - Classic'
