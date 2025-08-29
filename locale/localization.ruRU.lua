@@ -10,7 +10,7 @@ L["addon.version"] = "Версия"
 
 -- Addon specific
 
-L["tooltip.expansion"] = "Дополнение"
+L["tooltip.expansion"] = "Контент"
 L["tooltip.category"] = "Категория"
 L["tooltip.item-level"] = "Уровень предмета"
 
@@ -32,8 +32,8 @@ L["info.about.text"] = "|cnGOLD_FONT_COLOR:Версия игры:|r %s\n|cnGOLD_
 L["options"] = "Параметры"
 L["options.general"] = "Общие параметры"
 
-L["options.expansion.name"] = "Показывать дополнение WoW"
-L["options.expansion.tooltip"] = "Отображает соответствующее дополнение для предметов во всплывающей подсказке."
+L["options.expansion.name"] = "Показывать контент WoW"
+L["options.expansion.tooltip"] = "Отображает соответствующий контент для предметов во всплывающей подсказке."
 L["options.category.name"] = "Показывать категорию"
 L["options.category.tooltip"] = "Отображает соответствующую категорию для предметов во всплывающей подсказке."
 L["options.item-level.name"] = "Показывать уровень предмета"
