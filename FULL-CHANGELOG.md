@@ -1,3 +1,7 @@
+**v1.8 (2025-09-02)**
+- Added: TOC version for patch 5.5.1 [mists]
+- Updated: ruRU localization (#2 - Thanks to Hollicsh) [all versions]
+
 **v1.7 (2025-08-27)**
 - Updated: ruRU localization (#1 - Thanks to Hollicsh) [all versions]
 
