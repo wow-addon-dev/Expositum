@@ -1,3 +1,6 @@
+**v1.9 (2025-09-07)**
+- Changed: Output of debug messages [all versions]
+
 **v1.8 (2025-09-02)**
 - Added: TOC version for patch 5.5.1 [mists]
 - Updated: ruRU localization (#2 - Thanks to Hollicsh) [all versions]
