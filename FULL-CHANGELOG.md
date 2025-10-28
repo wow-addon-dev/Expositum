@@ -11,7 +11,7 @@
 - Changed: Output of debug messages [all versions]
 
 **v1.8 (2025-09-02)**
-- Added: TOC version for patch 5.5.1 [mists]
+- Added: TOC version for patch 5.5.1 [mist of pandaria - classic]
 - Updated: ruRU localization (#2 - Thanks to Hollicsh) [all versions]
 
 **v1.7 (2025-08-27)**
