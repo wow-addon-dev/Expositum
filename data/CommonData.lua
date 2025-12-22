@@ -12,4 +12,5 @@ EXT.EXPANSION_NAMES = {
 	[8]  = "Shadowlands",
 	[9]  = "Dragonflight",
 	[10] = "The War Within",
+	[11] = "Midnight"
 }
