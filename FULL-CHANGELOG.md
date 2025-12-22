@@ -1,3 +1,6 @@
+**v1.16 (2025-12-22)**
+- Fixed: Missing expansion (#4 - Thanks to burntorangejedi) [all versions]
+
 **v1.15 (2025-12-18)**
 - Added: TOC version for patch 12.0.1 [retail]
 - Removed: TOC version for patch 11.2.5 [retail]
