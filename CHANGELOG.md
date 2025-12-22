@@ -2,6 +2,4 @@
 ### [@project-version@](https://github.com/wow-addon-dev/Expositum/tree/@project-version@) (@build-date@)
 [Full Changelog](@full-changelog@) - [Previous Releases](https://github.com/wow-addon-dev/Expositum/releases)
 
-- Added: TOC version for patch 12.0.1 [retail]
-- Removed: TOC version for patch 11.2.5 [retail]
-- Removed: TOC version for patch 5.5.2 [mist of pandaria - classic]
+- Fixed: Missing expansion (#4 - Thanks to burntorangejedi) [all versions]
