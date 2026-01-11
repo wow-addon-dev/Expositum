@@ -25,4 +25,3 @@ To open the addon option window, type `/ext` or `/Expositum` into your chat and 
 ### Translation Support
 
 If you would like to help me with the translation, I would be very pleased.
-
