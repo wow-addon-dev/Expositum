@@ -157,7 +157,7 @@ function Options:Initialize()
 
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.general"]))
 
-	if EXT.GAME_TYPE_RETAIL then
+	if EXT.GAME_TYPE_MAINLINE then
 		do
 			local name = L["options.expansion.name"]
 			local tooltip = L["options.expansion.tooltip"]

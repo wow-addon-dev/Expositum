@@ -6,6 +6,7 @@
 ## IconTexture: Interface\AddOns\Expositum\media\icon.blp
 ## LoadOnDemand: 0
 ## DefaultState: enabled
+## AllowLoadGameType: mists
 
 ## Notes: This addon provides additional information about items in the tooltip.
 ## Notes-deDE: Dieses Addon stellt zusätzliche Informationen zu Gegenständen im Tooltip bereit.

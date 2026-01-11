@@ -38,7 +38,7 @@ function expositumFrame:ADDON_LOADED(_, addOnName)
         Dialog:Initialize()
         Options:Initialize()
 
-		if EXT.GAME_TYPE_CLASSIC or EXT.GAME_TYPE_MISTS then
+		if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then
 			local function OnTooltipSetItem(tooltip)
 				local _, link = tooltip:GetItem()
 				if link then
@@ -50,7 +50,7 @@ function expositumFrame:ADDON_LOADED(_, addOnName)
 			ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
 			if ShoppingTooltip1 then ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
 			if ShoppingTooltip2 then ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
-		elseif EXT.GAME_TYPE_RETAIL then
+		elseif EXT.GAME_TYPE_MAINLINE then
 			TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
 				if not tooltip or not data then return end
 

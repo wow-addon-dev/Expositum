@@ -14,7 +14,7 @@ Expositum is an addon that provides additional information about items in the to
 *   Displays the item category (e.g. crafting materials, clothing, etc.) (optional)
 *   Displays the item level (optional)
 *   Supported languages: English, German, Russian
-*   Supported versions: 'Classic', 'Mists of Pandaria - Classic' and 'Retail'
+*   Supported versions: 'Classic', 'Burning Crusade - Classic Anniversary Edition', 'Mists of Pandaria - Classic' and 'Retail'
 
 *\* The expansion can only be displayed in 'Retail'.*
 
