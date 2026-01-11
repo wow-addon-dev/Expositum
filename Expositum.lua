@@ -12,7 +12,7 @@ local Tooltip = EXT.tooltip
 
 local function SlashCommand(msg, editbox)
     if not msg or msg:trim() == "" then
-        Settings.OpenToCategory("Expositum")
+        Settings.OpenToCategory(EXT.MAIN_CATEGORY_ID)
 	else
         Utils:PrintDebug("No arguments will be accepted.")
 	end
