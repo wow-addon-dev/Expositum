@@ -1,3 +1,7 @@
+**v1.17 (2026-01-11)**
+- Added: Support for 'Burning Crusade - Classic Anniversary Edition'
+- Minor code adjustments [all versions]
+
 **v1.16 (2025-12-22)**
 - Fixed: Missing expansion (#4 - Thanks to burntorangejedi) [all versions]
 
