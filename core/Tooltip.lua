@@ -59,7 +59,7 @@ end
 function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if not itemLink then return end
 
-	local _, _, _, itemLevel, _, itemType, itemSubType, _, _, _, _, classID, subclassID, _, expansionID = C_Item.GetItemInfo(itemLink)
+	local _, _, _, itemLevel, _, itemType, itemSubType, _, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
 
 	if expansionID == nil then return end
 
