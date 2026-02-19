@@ -41,6 +41,8 @@ function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
 
 	local _, _, _, itemLevel, _, itemType, itemSubType = C_Item.GetItemInfo(itemLink)
 
+	if itemLevel == nil or itemType == nil or itemSubType == nil then return end
+
 	if (EXT.data.options["category"] or EXT.data.options["item-level"]) and EXT.data.options["blank-line"] then
 		tooltip:AddLine(" ")
 	end
@@ -61,7 +63,7 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 
 	local _, _, _, itemLevel, _, itemType, itemSubType, _, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
 
-	if expansionID == nil then return end
+	if itemLevel == nil or itemType == nil or itemSubType == nil or expansionID == nil then return end
 
 	local expansionName = GetExpansionName(expansionID)
 
