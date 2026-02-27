@@ -1,3 +1,6 @@
+**v1.25 (2026-02-27)**
+- Updated: License
+
 **v1.24 (2026-02-19)**
 - Minor code adjustments [all versions]
 
