@@ -1,3 +1,6 @@
+**v1.26 (2026-03-15)**
+- Added: TOC version for patch 12.0.5 [retail]
+
 **v1.25 (2026-02-27)**
 - Updated: License
 
