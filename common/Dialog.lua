@@ -1,35 +1,24 @@
-local _, EXT = ...
+local addonName, EXT = ...
 
-local L =  EXT.localization
+local L = EXT.Localization
 
 local Dialog = {}
-
---------------
---- Frames ---
---------------
-
-local copyAddressDialog
-local resetOptionsDialog
+local DialogLib = LibStub("WoWAddonDevelopment_SharedDialogs", true)
 
 ---------------------
 --- Main Funtions ---
 ---------------------
 
-function Dialog:Initialize()
-    copyAddressDialog = CreateFrame("Frame", "Percursus_CopyAdressDialog", UIParent, "Expositum_CopyAdressDialogTemplate")
-	resetOptionsDialog = CreateFrame("Frame", "Percursus_ResetOptionsDialog", UIParent, "Expositum_ResetOptionsDialogTemplate")
-end
-
 function Dialog:ShowCopyAddressDialog(address)
-    if (not copyAddressDialog:IsShown()) and (not resetOptionsDialog:IsShown()) then
-        copyAddressDialog:ShowDialog(address)
-    end
+	DialogLib:ShowCopyAddressDialog(address, L["dialog.copy-address.text"])
 end
 
-function Dialog:ShowResetOptionsDialog()
-    if (not copyAddressDialog:IsShown()) and (not resetOptionsDialog:IsShown()) then
-        resetOptionsDialog:ShowDialog()
+function Dialog:ShowDeleteDataDialog()
+    local function ResetLogic()
+        ReloadUI()
     end
+
+    DialogLib:ShowDeleteDataDialog(L["dialog.delete-data.text"], ResetLogic)
 end
 
-EXT.dialog = Dialog
+EXT.Dialog = Dialog

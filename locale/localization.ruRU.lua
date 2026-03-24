@@ -2,54 +2,52 @@ local _, EXT = ...
 
 if GetLocale() ~= "ruRU" then return end
 
-local L = EXT.localization
-
--- Generel
-
-L["addon.version"] = "Версия"
-
--- Addon specific
-
-L["tooltip.expansion"] = "Контент"
-L["tooltip.category"] = "Категория"
-L["tooltip.item-level"] = "Уровень предмета"
+local L = EXT.Localization
 
 -- Options
 
-L["info.description"] = "Описание"
-L["info.description.text"] = "Expositum - это дополнение, которое предоставляет дополнительную информацию о предметах во всплывающей подсказке.\n\nЕсли Вы нашли ошибку или у Вас есть вопросы по аддону, то можете связаться со мной через Github. Вы также можете помочь мне с переводом через Github. Спасибо."
-
-L["info.help"] = "Помощь"
-L["info.help.text"] = "В случае возникновения проблем после обновления, Вы можете сбросить настройки здесь."
-L["info.help.reset-button.name"] = "Сбросить параметры"
-L["info.help.reset-button.desc"] = "Сбрасывает параметры на значения по умолчанию. Это относится ко всем персонажам."
-L["info.help.github-button.name"] = "GitHub"
-L["info.help.github-button.desc"] = "Открывает всплывающее окно со ссылкой на GitHub."
-
-L["info.about"] = "Об аддоне"
-L["info.about.text"] = "|cnGOLD_FONT_COLOR:Версия игры:|r %s\n|cnGOLD_FONT_COLOR:Версия дополнения:|r %s\n\n|cnGOLD_FONT_COLOR:Автор:|r %s"
-
-L["options"] = "Параметры"
 L["options.general"] = "Общие параметры"
+L["options.general.minimap-button.name"] = "Minimap Button"
+L["options.general.minimap-button.tooltip"] = "When this is enabled, the minimap button is displayed."
 
-L["options.expansion.name"] = "Показывать контент WoW"
-L["options.expansion.tooltip"] = "Отображает соответствующий контент для предметов во всплывающей подсказке."
-L["options.category.name"] = "Показывать категорию"
-L["options.category.tooltip"] = "Отображает соответствующую категорию для предметов во всплывающей подсказке."
-L["options.item-level.name"] = "Показывать уровень предмета"
-L["options.item-level.tooltip"] = "Отображает соответствующий уровень предмета для предметов во всплывающей подсказке.."
-L["options.blank-line.name"] = "Вставить пустую строку"
-L["options.blank-line.tooltip"] = "Вставляет пустую строку в подсказку перед отображением расширения и категории."
+L["options.tooltip"] = "Tooltip"
+L["options.tooltip.expansion.name"] = "Показывать контент WoW"
+L["options.tooltip.expansion.tooltip"] = "Отображает соответствующий контент для предметов во всплывающей подсказке."
+L["options.tooltip.category.name"] = "Показывать категорию"
+L["options.tooltip.category.tooltip"] = "Отображает соответствующую категорию для предметов во всплывающей подсказке."
+L["options.tooltip.item-level.name"] = "Показывать уровень предмета"
+L["options.tooltip.item-level.tooltip"] = "Отображает соответствующий уровень предмета для предметов во всплывающей подсказке.."
+L["options.tooltip.blank-line.name"] = "Вставить пустую строку"
+L["options.tooltip.blank-line.tooltip"] = "Вставляет пустую строку в подсказку перед отображением расширения и категории."
 
 L["options.other"] = "Другие параметры"
-L["options.debug-mode.name"] = "Режим отладки"
-L["options.debug-mode.tooltip"] = "Если режим отладки включен, то отображается дополнительная информацию в чате."
+L["options.other.debug-mode.name"] = "Режим отладки"
+L["options.other.debug-mode.tooltip"] = "Если режим отладки включен, то отображается дополнительная информацию в чате."
 
--- Chat
+L["options.about"] = "About"
+L["options.about.game-version"] = "Game Version"
+L["options.about.addon-version"] = "Addon Version"
+L["options.about.author"] = "Author"
 
-L["chat.reset-options.success"] = "Параметры успешно сброшены."
+L["options.about.button-delete-data.name"] = "???"
+L["options.about.button-delete-data.tooltip"] = "???"
+L["options.about.button-delete-data.button"] = "???"
+
+L["options.about.button-github.name"] = "Feedback & Help"
+L["options.about.button-github.tooltip"] = "Opens a popup window with a link to GitHub."
+L["options.about.button-github.button"] = "GitHub"
+
+-- Generel
+
+L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Right-click|r to open the options."
 
 -- Dialog
 
 L["dialog.copy-address.text"] = "Чтобы скопировать ссылку, нажмите CTRL + C."
-L["dialog.reset-options.text"] = "Вы действительно хотите сбросить настройки?\n|cnNORMAL_FONT_COLOR:Внимание:|r Интерфейс игры будет автоматически перезагружен!"
+L["dialog.delete-data.text"] = "Do you really want to delete all addon data?\n|cnNORMAL_FONT_COLOR:Warning:|r The game interface will be automatically reloaded!"
+
+-- Tooltip
+
+L["tooltip.expansion"] = "Контент"
+L["tooltip.category"] = "Категория"
+L["tooltip.item-level"] = "Уровень предмета"

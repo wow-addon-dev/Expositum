@@ -1,4 +1,4 @@
-## Interface: 20505
+## Interface: 120005, 120001, 50503, 20505, 11508
 ## Title: Expositum
 ## Author: diomsg (Diom-Antonidas EU)
 
@@ -6,16 +6,18 @@
 ## IconTexture: Interface\AddOns\Expositum\media\icon.blp
 ## LoadOnDemand: 0
 ## DefaultState: enabled
-## AllowLoadGameType: tbc
 
 ## Notes: This addon provides additional information about items in the tooltip.
 ## Notes-deDE: Dieses Addon stellt zusätzliche Informationen zu Gegenständen im Tooltip bereit.
 ## Notes-ruRU: Этот аддон предоставляет дополнительную информацию о предметах во всплывающей подсказке.
 
 ## LoadSavedVariablesFirst: 1
-## SavedVariables: Expositum_Options
+## SavedVariables: Expositum_Options_v2
 
-## X-Flavor: Burning Crusade - Classic Anniversary Edition
+## AddonCompartmentFuncOnEnter: Expositum_CompartmentOnEnter
+## AddonCompartmentFuncOnLeave: Expositum_CompartmentOnLeave
+## AddonCompartmentFunc: Expositum_CompartmentOnClick
+
 ## X-BuildDate: @build-date@
 ## X-E-Mail: feedback@wow-addon.dev
 ## X-Github: https://github.com/wow-addon-dev/Expositum

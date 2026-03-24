@@ -1,6 +1,6 @@
 local _, EXT = ...
 
-local L = EXT.localization
+local L = EXT.Localization
 
 local Tooltip = {}
 
@@ -43,15 +43,15 @@ function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
 
 	if itemLevel == nil or itemType == nil or itemSubType == nil then return end
 
-	if (EXT.data.options["category"] or EXT.data.options["item-level"]) and EXT.data.options["blank-line"] then
+	if (EXT.options.tooltip["category"] or EXT.options.tooltip["item-level"]) and EXT.options.tooltip["blank-line"] then
 		tooltip:AddLine(" ")
 	end
 
-	if EXT.data.options["category"] then
+	if EXT.options.tooltip["category"] then
 		AddDoubleLine(tooltip, L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
 	end
 
-	if EXT.data.options["item-level"] then
+	if EXT.options.tooltip["item-level"] then
 		AddDoubleLine(tooltip, L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
 
@@ -67,23 +67,23 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 
 	local expansionName = GetExpansionName(expansionID)
 
-	if (EXT.data.options["expansion"] or EXT.data.options["category"] or EXT.data.options["item-level"]) and EXT.data.options["blank-line"] then
+	if (EXT.options.tooltip["expansion"] or EXT.options.tooltip["category"] or EXT.options.tooltip["item-level"]) and EXT.options.tooltip["blank-line"] then
 		tooltip:AddLine(" ")
 	end
 
-	if EXT.data.options["expansion"] then
+	if EXT.options.tooltip["expansion"] then
 		AddDoubleLine(tooltip, L["tooltip.expansion"], "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r")
 	end
 
-	if EXT.data.options["category"] then
+	if EXT.options.tooltip["category"] then
 		AddDoubleLine(tooltip, L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
 	end
 
-	if EXT.data.options["item-level"] then
+	if EXT.options.tooltip["item-level"] then
 		AddDoubleLine(tooltip, L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
 
 	tooltip:Show()
 end
 
-EXT.tooltip = Tooltip
+EXT.Tooltip = Tooltip

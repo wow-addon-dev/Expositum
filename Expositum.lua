@@ -1,10 +1,9 @@
 local addonName, EXT = ...
 
-local L = EXT.localization
-local Utils = EXT.utils
-local Dialog = EXT.dialog
-local Options = EXT.options
-local Tooltip = EXT.tooltip
+local L = EXT.Localization
+local Utils = EXT.Utils
+local Options = EXT.Options
+local Tooltip = EXT.Tooltip
 
 ----------------------
 --- Local funtions ---
@@ -35,7 +34,7 @@ end
 function expositumFrame:ADDON_LOADED(_, addOnName)
     if addOnName == addonName then
         Utils:InitializeDatabase()
-        Dialog:Initialize()
+		Utils:InitializeMinimapButton()
         Options:Initialize()
 
 		if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then
