@@ -1,3 +1,6 @@
+**v1.28 (2026-03-25)**
+- Fixed: The options menu could not be loaded
+
 **v1.27 (2026-03-24)**
 - Added: Minimap Button
 - Changed: Consolidation of the options menu
