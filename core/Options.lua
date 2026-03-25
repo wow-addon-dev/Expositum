@@ -112,7 +112,7 @@ function Options:Initialize()
 			rightText = EXT.GAME_VERSION .. " (" .. EXT.GAME_FLAVOR .. ")",
 		}
 
-		local text = layout:AddInitializer(Settings.CreateElementInitializer("Horatum_OptionsText", data))
+		local text = layout:AddInitializer(Settings.CreateElementInitializer("Expositum_OptionsText", data))
 
 		function text:GetExtent()
 			return 14
@@ -125,7 +125,7 @@ function Options:Initialize()
 			rightText = EXT.ADDON_VERSION .. " (" .. EXT.ADDON_BUILD_DATE .. ")"
 		}
 
-		local text = layout:AddInitializer(Settings.CreateElementInitializer("Horatum_OptionsText", data))
+		local text = layout:AddInitializer(Settings.CreateElementInitializer("Expositum_OptionsText", data))
 
 		function text:GetExtent()
 			return 14
@@ -138,7 +138,7 @@ function Options:Initialize()
 			rightText = EXT.ADDON_AUTHOR
 		}
 
-		local text = layout:AddInitializer(Settings.CreateElementInitializer("Horatum_OptionsText", data))
+		local text = layout:AddInitializer(Settings.CreateElementInitializer("Expositum_OptionsText", data))
 	end
 
 	do
