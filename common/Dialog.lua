@@ -3,7 +3,7 @@ local addonName, EXT = ...
 local L = EXT.Localization
 
 local Dialog = {}
-local DialogLib = LibStub("WoWAddonDevelopment_SharedDialogs", true)
+local DialogLib = LibStub("WAD-LibShared-Dialogs", true)
 
 ---------------------
 --- Main Funtions ---
