@@ -1,3 +1,7 @@
+**v2.0-alpha.1 (2026-04-12)**
+- Added: Embedded library 'WoW-AD-LibShared' (r1)
+- Refactoring of the addon structure and source codes
+
 **v1.28 (2026-03-25)**
 - Fixed: The options menu could not be loaded
 
