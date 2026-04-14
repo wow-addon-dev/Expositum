@@ -2,7 +2,6 @@ local addonName, EXT = ...
 
 local L = EXT.Localization
 local Utils = EXT.Utils
-local Dialog = EXT.Dialog
 
 local Options = {}
 
@@ -147,7 +146,7 @@ function Options:Initialize()
 		local buttonText = L["options.about.button-github.button"]
 
         local function OnButtonClick()
-            Dialog:ShowCopyAddressDialog(EXT.LINK_GITHUB)
+            WAD.Dialog:ShowCopyAddressDialog(EXT.LINK_GITHUB)
         end
 
         local buttonInitializer = CreateSettingsButtonInitializer(name, buttonText, OnButtonClick, tooltip, true)

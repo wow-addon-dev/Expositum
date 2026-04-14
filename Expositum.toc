@@ -7,6 +7,8 @@
 ## LoadOnDemand: 0
 ## DefaultState: enabled
 
+## Dependencies: WoWAddonDevelopmentLibraries
+
 ## Notes: This addon provides additional information about items in the tooltip.
 ## Notes-deDE: Dieses Addon stellt zusätzliche Informationen zu Gegenständen im Tooltip bereit.
 ## Notes-ruRU: Этот аддон предоставляет дополнительную информацию о предметах во всплывающей подсказке.

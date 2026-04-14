@@ -41,11 +41,6 @@ L["options.about.button-github.button"] = "GitHub"
 
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Right-click|r to open the options."
 
--- Dialog
-
-L["dialog.copy-address.text"] = "Чтобы скопировать ссылку, нажмите CTRL + C."
-L["dialog.delete-data.text"] = "Do you really want to delete all addon data?\n|cnNORMAL_FONT_COLOR:Warning:|r The game interface will be automatically reloaded!"
-
 -- Tooltip
 
 L["tooltip.expansion"] = "Контент"
