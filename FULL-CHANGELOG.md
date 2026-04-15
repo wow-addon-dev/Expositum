@@ -1,3 +1,7 @@
+**v2.0-alpha.2 (2026-04-15)**
+- Added: Required dependency 'Arcane Wizard: Library'
+- Refactoring of the addon structure and source codes
+
 **v2.0-alpha.1 (2026-04-12)**
 - Added: Embedded library 'WoW-AD-LibShared' (r1)
 - Refactoring of the addon structure and source codes
