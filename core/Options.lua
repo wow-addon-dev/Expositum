@@ -3,6 +3,8 @@ local addonName, EXT = ...
 local L = EXT.Localization
 local Utils = EXT.Utils
 
+local AWL = ArcaneWizardLibrary
+
 local Options = {}
 
 ----------------------
@@ -111,7 +113,7 @@ function Options:Initialize()
 			rightText = EXT.GAME_VERSION .. " (" .. EXT.GAME_FLAVOR .. ")",
 		}
 
-		local text = layout:AddInitializer(Settings.CreateElementInitializer("Expositum_OptionsText", data))
+		local text = layout:AddInitializer(Settings.CreateElementInitializer("ArcaneWizardLibrary_OptionsText", data))
 
 		function text:GetExtent()
 			return 14
@@ -124,7 +126,7 @@ function Options:Initialize()
 			rightText = EXT.ADDON_VERSION .. " (" .. EXT.ADDON_BUILD_DATE .. ")"
 		}
 
-		local text = layout:AddInitializer(Settings.CreateElementInitializer("Expositum_OptionsText", data))
+		local text = layout:AddInitializer(Settings.CreateElementInitializer("ArcaneWizardLibrary_OptionsText", data))
 
 		function text:GetExtent()
 			return 14
@@ -137,7 +139,7 @@ function Options:Initialize()
 			rightText = EXT.ADDON_AUTHOR
 		}
 
-		local text = layout:AddInitializer(Settings.CreateElementInitializer("Expositum_OptionsText", data))
+		local text = layout:AddInitializer(Settings.CreateElementInitializer("ArcaneWizardLibrary_OptionsText", data))
 	end
 
 	do
@@ -146,7 +148,7 @@ function Options:Initialize()
 		local buttonText = L["options.about.button-github.button"]
 
         local function OnButtonClick()
-            WAD.Dialog:ShowCopyAddressDialog(EXT.LINK_GITHUB)
+            AWL.Dialog:ShowCopyAddressDialog(EXT.LINK_GITHUB)
         end
 
         local buttonInitializer = CreateSettingsButtonInitializer(name, buttonText, OnButtonClick, tooltip, true)

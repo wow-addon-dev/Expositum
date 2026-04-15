@@ -10,7 +10,7 @@ EXT.LINK_GITHUB = C_AddOns.GetAddOnMetadata(addonName, "X-Github")
 EXT.LINK_CURSEFORGE = C_AddOns.GetAddOnMetadata(addonName, "X-Curseforge")
 EXT.LINK_WAGO = C_AddOns.GetAddOnMetadata(addonName, "X-Wago")
 
-EXT.MEDIA_PATH = "Interface\\AddOns\\" .. addonName .. "\\media\\"
+EXT.MEDIA_PATH = "Interface\\AddOns\\" .. addonName .. "\\assets\\"
 
 EXT.GAME_TYPE_VANILLA = (WOW_PROJECT_ID == WOW_PROJECT_CLASSIC)
 EXT.GAME_TYPE_TBC = (WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC)
