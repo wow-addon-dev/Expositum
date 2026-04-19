@@ -38,6 +38,8 @@ L["options.about.button-github.button"] = "GitHub"
 
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Right-click|r to open the options."
 
+-- Chat
+
 -- Tooltip
 
 L["tooltip.expansion"] = "Контент"
