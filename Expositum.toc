@@ -1,6 +1,6 @@
 ## Interface: 120005, 120001, 50503, 20505, 11508
 ## Title: Expositum
-## Author: diomsg (Diom-Antonidas EU)
+## Author: Arcane Wizard | created by diomsg
 
 ## Version: @project-version@
 ## IconTexture: Interface\AddOns\Expositum\assets\icon.blp

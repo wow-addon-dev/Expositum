@@ -1,27 +1,38 @@
 # Expositum
 
-[![GitHub Release](https://img.shields.io/github/v/release/wow-addon-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/wow-addon-dev/Expositum/releases)
-[![GitHub Release Date](https://img.shields.io/github/release-date/wow-addon-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/wow-addon-dev/Expositum/releases)
-[![Static Badge](https://img.shields.io/badge/buy_me_a_coffe-donate-yellow?logo=buy-me-a-coffee&logoColor=white)](https://buymeacoffee.com/diomsg)
+[![GitHub Release](https://img.shields.io/github/v/release/wow-addon-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/wow-addon-dev/Expositum/releases) [![GitHub Release Date](https://img.shields.io/github/release-date/wow-addon-dev/Expositum?color=blue&logo=github&cacheSeconds=600)](https://github.com/wow-addon-dev/Expositum/releases) [![Static Badge](https://img.shields.io/badge/buy_me_a_coffe-donate-yellow?logo=buy-me-a-coffee&logoColor=white)](https://buymeacoffee.com/diomsg)
 
-*Reveal an item's origin and purpose.*
+_Reveal an item's origin and purpose._
 
-Expositum is an addon that provides additional information about items in the tooltip.
+Expositum is a World of Warcraft addon that provides additional information about items directly in the tooltip.
 
-### Features
+**Key Features**
 
-*   Displays the corresponding expansion of the item (optional)*
-*   Displays the item category (e.g. crafting materials, clothing, etc.) (optional)
-*   Displays the item level (optional)
-*   Supported languages: English, German, Russian
-*   Supported versions: 'Classic', 'Burning Crusade - Classic Anniversary Edition', 'Mists of Pandaria - Classic' and 'Retail'
+* **Tooltip Enhancements** - Instantly reveals the corresponding expansion, category, and item level of an item at a glance.
 
-*\* The expansion can only be displayed in 'Retail'.*
+## Features
 
-### Quick Start
+* Displays the corresponding expansion of the item (optional)*.
+* Displays the item category (e.g., crafting materials, clothing, etc.) (optional).
+* Displays the item level (optional).
 
-To open the addon option window, type `/ext` or `/Expositum` into your chat and hit enter.
+*\* The expansion can only be displayed in Retail.*
 
-### Translation Support
+## Supported Languages & Flavors
 
-If you would like to help me with the translation, I would be very pleased.
+* Languages: English, German, Russian
+* Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Retail
+
+## Installation & Quick Start
+
+> ⚠️ **Required Dependency:** This addon requires the **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install it manually, please ensure the library is also downloaded and enabled.
+
+To open the addon options menu, type `/ext` or `/expositum` into your chat and press enter.
+
+## Bugs & Feedback
+
+If you find a bug or have a suggestion, please use the GitHub Issues or the CurseForge comments.
+
+## Translation Support
+
+If you would like to localize this addon into other languages, your contribution would be very welcome.
