@@ -6,7 +6,7 @@ _Reveal an item's origin and purpose._
 
 Expositum is a World of Warcraft addon that provides additional information about items directly in the tooltip.
 
-**Key Features**
+**Key Feature**
 
 * **Tooltip Enhancements** - Instantly reveals the corresponding expansion, category, and item level of an item at a glance.
 
