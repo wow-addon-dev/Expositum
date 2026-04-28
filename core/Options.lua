@@ -26,131 +26,121 @@ local minimapButtonProxy = setmetatable({}, {
     end,
 })
 
----------------------
---- Main Funtions ---
----------------------
+----------------------
+--- Main Functions ---
+----------------------
 
 function Options:Initialize()
     local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
 
-	local variableTableGeneral = EXT.options.general
-	local variableTableTooltip = EXT.options.tooltip
-	local variableTableOther = EXT.options.other
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.general"]))
 
-	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.general"]))
+    -- Minimap Button
+    AWL.Settings:AddCheckbox(category, {
+        variableTable = minimapButtonProxy,
+        settingKey    = addonName .. "_hide",
+        variableName  = "hide",
+        name          = L["options.general.minimap-button.name"],
+        tooltip       = L["options.general.minimap-button.tooltip"],
+        default       = true
+    })
 
-	do
-        local name = L["options.general.minimap-button.name"]
-        local tooltip = L["options.general.minimap-button.tooltip"]
-        local variable = "hide"
-        local defaultValue = false
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
 
-        local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, minimapButtonProxy, Settings.VarType.Boolean, name, not defaultValue)
-        Settings.CreateCheckbox(category, setting, tooltip)
+	 -- Expansion Check
+    if EXT.GAME_TYPE_MAINLINE then
+        AWL.Settings:AddCheckbox(category, {
+            variableTable = EXT.options.tooltip,
+            settingKey    = addonName .. "_expansion",
+            variableName  = "expansion",
+            name          = L["options.tooltip.expansion.name"],
+            tooltip       = L["options.tooltip.expansion.tooltip"],
+            default       = true
+        })
     end
 
-	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
+    -- Category
+    AWL.Settings:AddCheckbox(category, {
+        variableTable = EXT.options.tooltip,
+        settingKey    = addonName .. "_category",
+        variableName  = "category",
+        name          = L["options.tooltip.category.name"],
+        tooltip       = L["options.tooltip.category.tooltip"],
+        default       = true
+    })
 
-	if EXT.GAME_TYPE_MAINLINE then
-		do
-			local name = L["options.tooltip.expansion.name"]
-			local tooltip = L["options.tooltip.expansion.tooltip"]
-			local variable = "expansion"
-			local defaultValue = true
+    -- Item Level
+    AWL.Settings:AddCheckbox(category, {
+        variableTable = EXT.options.tooltip,
+        settingKey    = addonName .. "_item-level",
+        variableName  = "item-level",
+        name          = L["options.tooltip.item-level.name"],
+        tooltip       = L["options.tooltip.item-level.tooltip"],
+        default       = true
+    })
 
-			local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTableTooltip, Settings.VarType.Boolean, name, defaultValue)
-			Settings.CreateCheckbox(category, setting, tooltip)
-		end
-	end
-
-	do
-        local name = L["options.tooltip.category.name"]
-        local tooltip = L["options.tooltip.category.tooltip"]
-        local variable = "category"
-        local defaultValue = true
-
-        local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTableTooltip, Settings.VarType.Boolean, name, defaultValue)
-        Settings.CreateCheckbox(category, setting, tooltip)
-    end
-
-	do
-        local name = L["options.tooltip.item-level.name"]
-        local tooltip = L["options.tooltip.item-level.tooltip"]
-        local variable = "item-level"
-        local defaultValue = true
-
-        local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTableTooltip, Settings.VarType.Boolean, name, defaultValue)
-        Settings.CreateCheckbox(category, setting, tooltip)
-    end
-
-	do
-        local name = L["options.tooltip.blank-line.name"]
-        local tooltip = L["options.tooltip.blank-line.tooltip"]
-        local variable = "blank-line"
-        local defaultValue = true
-
-        local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTableTooltip, Settings.VarType.Boolean, name, defaultValue)
-        Settings.CreateCheckbox(category, setting, tooltip)
-    end
+    -- Blank Line
+    AWL.Settings:AddCheckbox(category, {
+        variableTable = EXT.options.tooltip,
+        settingKey    = addonName .. "_blank-line",
+        variableName  = "blank-line",
+        name          = L["options.tooltip.blank-line.name"],
+        tooltip       = L["options.tooltip.blank-line.tooltip"],
+        default       = true
+    })
 
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.other"]))
 
-    do
-        local name = L["options.other.debug-mode.name"]
-        local tooltip = L["options.other.debug-mode.tooltip"]
-        local variable = "debug-mode"
-        local defaultValue = false
+    -- Debug Mode
+    AWL.Settings:AddCheckbox(category, {
+        variableTable = EXT.options.other,
+        settingKey    = addonName .. "_debug-mode",
+        variableName  = "debug-mode",
+        name          = L["options.other.debug-mode.name"],
+        tooltip       = L["options.other.debug-mode.tooltip"],
+        default       = false
+    })
 
-        local setting = Settings.RegisterAddOnSetting(category, addonName .. "_" .. variable, variable, variableTableOther, Settings.VarType.Boolean, name, defaultValue)
-        Settings.CreateCheckbox(category, setting, tooltip)
-    end
+    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.about"]))
 
-	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.about"]))
+    -- Game Version
+    AWL.Settings:AddInfoText(layout, {
+        leftText  = L["options.about.game-version"],
+        rightText = EXT.GAME_VERSION .. " (" .. EXT.GAME_FLAVOR .. ")"
+    })
 
-	do
-		layout:AddInitializer(Settings.CreateElementInitializer("ArcaneWizardLibrary_SettingsPanelTextNormal", {
-			leftText = L["options.about.game-version"],
-			rightText = EXT.GAME_VERSION .. " (" .. EXT.GAME_FLAVOR .. ")",
-		}))
-	end
+    -- Addon Version
+    AWL.Settings:AddInfoText(layout, {
+        leftText  = L["options.about.addon-version"],
+        rightText = EXT.ADDON_VERSION .. " (" .. EXT.ADDON_BUILD_DATE .. ")"
+    })
 
-	do
-		layout:AddInitializer(Settings.CreateElementInitializer("ArcaneWizardLibrary_SettingsPanelTextNormal", {
-			leftText = L["options.about.addon-version"],
-			rightText = EXT.ADDON_VERSION .. " (" .. EXT.ADDON_BUILD_DATE .. ")"
-		}))
-	end
+    -- Library Version
+    AWL.Settings:AddInfoText(layout, {
+        leftText  = L["options.about.lib-version"],
+        rightText = AWL.ADDON_VERSION .. " (" .. AWL.ADDON_BUILD_DATE .. ")"
+    })
 
-	do
-		layout:AddInitializer(Settings.CreateElementInitializer("ArcaneWizardLibrary_SettingsPanelTextNormal", {
-			leftText = L["options.about.lib-version"],
-			rightText = AWL.ADDON_VERSION .. " (" .. AWL.ADDON_BUILD_DATE .. ")"
-		}))
-	end
+    -- Author
+    AWL.Settings:AddInfoText(layout, {
+        leftText  = L["options.about.author"],
+        rightText = EXT.ADDON_AUTHOR,
+        height    = 30
+    })
 
-	do
-		layout:AddInitializer(Settings.CreateElementInitializer("ArcaneWizardLibrary_SettingsPanelTextLarge", {
-			leftText = L["options.about.author"],
-			rightText = EXT.ADDON_AUTHOR
-		}))
-	end
-
-	do
-        local name = L["options.about.button-github.name"]
-        local tooltip = L["options.about.button-github.tooltip"]
-		local buttonText = L["options.about.button-github.button"]
-
-        local function OnButtonClick()
-            AWL.Dialogs:ShowLinkDialog(EXT.LINK_GITHUB)
-        end
-
-        local buttonInitializer = CreateSettingsButtonInitializer(name, buttonText, OnButtonClick, tooltip, true)
-        layout:AddInitializer(buttonInitializer)
-    end
+    -- GitHub Link
+    AWL.Settings:AddButton(layout, {
+        name       = L["options.about.button-github.name"],
+        buttonText = L["options.about.button-github.button"],
+        tooltip    = L["options.about.button-github.tooltip"],
+        onClick    = function()
+			AWL.Dialogs:ShowLinkDialog(EXT.LINK_GITHUB)
+		end
+    })
 
     Settings.RegisterAddOnCategory(category)
 
-	EXT.MAIN_CATEGORY_ID = category:GetID()
+    EXT.MAIN_CATEGORY_ID = category:GetID()
 end
 
 EXT.Options = Options
