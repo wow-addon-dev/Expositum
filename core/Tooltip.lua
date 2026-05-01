@@ -54,8 +54,6 @@ function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
 	if EXT.options.tooltip["item-level"] then
 		AddDoubleLine(tooltip, L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
-
-	tooltip:Show()
 end
 
 function Tooltip:ProcessTooltip(tooltip, itemLink)
@@ -82,8 +80,6 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if EXT.options.tooltip["item-level"] then
 		AddDoubleLine(tooltip, L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
-
-	tooltip:Show()
 end
 
 EXT.Tooltip = Tooltip
