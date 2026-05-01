@@ -1,3 +1,7 @@
+**v2.2 (2026-05-01)**
+- Fixed: Lua error messages caused by attempts to access protected functions or objects (#5 - Thanks to JyanseiCoding)
+- Minor code adjustments
+
 **v2.1 (2026-04-28)**
 - Adapted to the latest version of Arcane Wizard: Library to ensure full compatibility
 
