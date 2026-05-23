@@ -19,22 +19,48 @@ function Utils:PrintMessage(msg)
 end
 
 function Utils:InitializeDatabase()
-    if (not Expositum_Options_v2) then
-        Expositum_Options_v2 = {
-			["general"] = {
+    local defaults = {
+        ["general"] = {
 				["minimap-button"] = {
 					["hide"] = false
 				}
 			},
 			["tooltip"] = {},
 			["other"] = {}
+    }
+
+    local charKey = GetUnitName("player", true) .. "#" .. GetRealmName()
+
+    if not Expositum_Options_v3 then
+        Expositum_Options_v3 = {
+            ["global"] = defaults,
+            ["profiles"] = {},
+            ["profileKeys"] = {}
+        }
+    end
+
+    if not Expositum_Options_v3.profiles[charKey] then
+        Expositum_Options_v3.profiles[charKey] = defaults
+    end
+
+    if not Expositum_Options_v3.profileKeys[charKey] then
+        Expositum_Options_v3.profileKeys[charKey] = {
+			["use-global"] = true,
+			["open-settings"] = false
 		}
     end
 
-    EXT.options = {}
-	EXT.options.general = Expositum_Options_v2["general"]
-	EXT.options.tooltip = Expositum_Options_v2["tooltip"]
-	EXT.options.other = Expositum_Options_v2["other"]
+	EXT.options = {}
+
+    if Expositum_Options_v3.profileKeys[charKey]["use-global"] then
+		EXT.options.general = Expositum_Options_v3.global["general"]
+		EXT.options.tooltip = Expositum_Options_v3.global["tooltip"]
+		EXT.options.other   = Expositum_Options_v3.global["other"]
+    else
+		EXT.options.general = Expositum_Options_v3.profiles[charKey]["general"]
+		EXT.options.tooltip = Expositum_Options_v3.profiles[charKey]["tooltip"]
+		EXT.options.other   = Expositum_Options_v3.profiles[charKey]["other"]
+    end
 end
 
 function Utils:InitializeMinimapButton()

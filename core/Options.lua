@@ -26,6 +26,89 @@ local minimapButtonProxy = setmetatable({}, {
     end,
 })
 
+local function GetCharKey()
+	return GetUnitName("player", true) .. "#" .. GetRealmName()
+end
+
+local function GetProfileModeText()
+	if Expositum_Options_v3.profileKeys[GetCharKey()]["use-global"] then
+		return L["options.profiles.mode.global"]
+	end
+
+	return L["options.profiles.mode.character"]
+end
+
+local function SetCheckButtonText(checkButton, text)
+	local label = checkButton.Text or _G[checkButton:GetName() .. "Text"]
+
+	if label then
+		label:SetFontObject(GameFontHighlight)
+		label:SetText(" " .. text)
+		checkButton:SetHitRectInsets(0, -label:GetStringWidth(), 0, 0)
+	end
+end
+
+local function ShowProfileReloadConfirmation(panel, oldValue)
+	AWL.Dialogs:ShowConfirmDialog(
+		L["options.profiles.reload.confirm"],
+		function()
+			Expositum_Options_v3.profileKeys[GetCharKey()]["open-settings"] = true
+			ReloadUI()
+		end,
+		function()
+			Expositum_Options_v3.profileKeys[GetCharKey()]["use-global"] = oldValue
+			panel.useGlobal:SetChecked(oldValue)
+		end
+	)
+end
+
+local function CreateCanvasSectionHeader(parent, text)
+	local header = parent:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
+	header:SetPoint("TOPLEFT", 16, -16)
+	header:SetText(text)
+
+	local divider = parent:CreateTexture(nil, "ARTWORK")
+	divider:SetHeight(1)
+	divider:SetPoint("LEFT", header, "RIGHT", 12, 0)
+	divider:SetPoint("RIGHT", parent, "RIGHT", -24, 0)
+	divider:SetColorTexture(0.25, 0.25, 0.25, 1)
+
+	return header
+end
+
+local function CreateProfileCanvas()
+	local panel = CreateFrame("Frame", addonName .. "ProfilesCanvas")
+	panel.name = L["options.profiles"]
+
+	local header = CreateCanvasSectionHeader(panel, L["options.profiles"])
+
+	local description = panel:CreateFontString(nil, "ARTWORK", "GameFontHighlight")
+	description:SetPoint("TOPLEFT", header, "BOTTOMLEFT", 0, -14)
+	description:SetWidth(560)
+	description:SetJustifyH("LEFT")
+	description:SetText(L["options.profiles.description"])
+
+	panel.useGlobal = CreateFrame("CheckButton", addonName .. "UseGlobalProfileCheckButton", panel, "InterfaceOptionsCheckButtonTemplate")
+	panel.useGlobal:SetPoint("TOPLEFT", description, "BOTTOMLEFT", -2, -14)
+	SetCheckButtonText(panel.useGlobal, L["options.profiles.use-global.name"])
+	panel.useGlobal:SetChecked(Expositum_Options_v3.profileKeys[GetCharKey()]["use-global"])
+	panel.useGlobal:SetScript("OnClick", function(checkButton)
+		local newValue = checkButton:GetChecked() and true or false
+		local oldValue = not newValue
+
+		Expositum_Options_v3.profileKeys[GetCharKey()]["use-global"] = newValue
+		ShowProfileReloadConfirmation(panel, oldValue)
+	end)
+
+	local reloadHint = panel:CreateFontString(nil, "ARTWORK", "GameFontDisable")
+	reloadHint:SetPoint("TOPLEFT", panel.useGlobal, "BOTTOMLEFT", 28, -4)
+	reloadHint:SetWidth(520)
+	reloadHint:SetJustifyH("LEFT")
+	reloadHint:SetText(L["options.profiles.reload.required"])
+
+	return panel
+end
+
 ----------------------
 --- Main Functions ---
 ----------------------
@@ -128,6 +211,13 @@ function Options:Initialize()
         height    = 30
     })
 
+	-- Active Profile
+	AWL.Settings:AddInfoText(layout, {
+		leftText  = L["options.profiles.profile-mode"],
+		rightText = GetProfileModeText(),
+		height    = 30
+	})
+
     -- GitHub Link
     AWL.Settings:AddButton(layout, {
         name       = L["options.about.button-github.name"],
@@ -140,7 +230,10 @@ function Options:Initialize()
 
     Settings.RegisterAddOnCategory(category)
 
+	local profileCategory = Settings.RegisterCanvasLayoutSubcategory(category, CreateProfileCanvas(), L["options.profiles"])
+
     EXT.MAIN_CATEGORY_ID = category:GetID()
+	EXT.PROFILES_CATEGORY_ID = profileCategory:GetID()
 end
 
 EXT.Options = Options

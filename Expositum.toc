@@ -1,4 +1,4 @@
-## Interface: 120005, 50504, 50503, 20505, 11508
+## Interface: 120007, 120005, 50504, 50503, 20505, 11508
 ## Title: Expositum
 ## Author: Arcane Wizard | created by diomsg
 
@@ -14,7 +14,7 @@
 ## Notes-ruRU: Этот аддон предоставляет дополнительную информацию о предметах во всплывающей подсказке.
 
 ## LoadSavedVariablesFirst: 1
-## SavedVariables: Expositum_Options_v2
+## SavedVariables: Expositum_Options_v3
 
 ## AddonCompartmentFuncOnEnter: Expositum_CompartmentOnEnter
 ## AddonCompartmentFuncOnLeave: Expositum_CompartmentOnLeave

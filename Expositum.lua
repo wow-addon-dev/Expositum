@@ -82,6 +82,13 @@ function expositumFrame:ADDON_LOADED(_, addOnName)
         InitTooltipHooks()
 
         Utils:PrintDebug("Addon fully loaded.")
+		local charKey = GetUnitName("player", true) .. "#" .. GetRealmName()
+
+		if Expositum_Options_v3.profileKeys[charKey]["open-settings"] then
+			Settings.OpenToCategory(EXT.PROFILES_CATEGORY_ID or EXT.MAIN_CATEGORY_ID)
+
+			Expositum_Options_v3.profileKeys[charKey]["open-settings"] = false
+		end
     end
 end
 
