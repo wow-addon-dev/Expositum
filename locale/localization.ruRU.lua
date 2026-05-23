@@ -9,15 +9,8 @@ local L = EXT.Localization
 L["options.general"] = "Общие параметры"
 L["options.general.minimap-button.name"] = "Minimap Button"
 L["options.general.minimap-button.tooltip"] = "When this is enabled, the minimap button is displayed."
-
-L["options.profiles"] = "Profiles"
-L["options.profiles.profile-mode"] = "Profile type"
-L["options.profiles.description"] = "Choose whether this character uses the account-wide profile or its own character profile."
-L["options.profiles.mode.global"] = "Account-wide"
-L["options.profiles.mode.character"] = "Character profile"
-L["options.profiles.use-global.name"] = "Use account-wide settings"
-L["options.profiles.reload.required"] = "Changing the profile type requires a UI reload."
-L["options.profiles.reload.confirm"] = "This change requires a UI reload. Do you want to reload the UI now?"
+L["options.general.debug-mode.name"] = "Режим отладки"
+L["options.general.debug-mode.tooltip"] = "Если режим отладки включен, то отображается дополнительная информацию в чате."
 
 L["options.tooltip"] = "Tooltip"
 L["options.tooltip.expansion.name"] = "Показывать контент WoW"
@@ -28,10 +21,6 @@ L["options.tooltip.item-level.name"] = "Показывать уровень пр
 L["options.tooltip.item-level.tooltip"] = "Отображает соответствующий уровень предмета для предметов во всплывающей подсказке.."
 L["options.tooltip.blank-line.name"] = "Вставить пустую строку"
 L["options.tooltip.blank-line.tooltip"] = "Вставляет пустую строку в подсказку перед отображением расширения и категории."
-
-L["options.other"] = "Другие параметры"
-L["options.other.debug-mode.name"] = "Режим отладки"
-L["options.other.debug-mode.tooltip"] = "Если режим отладки включен, то отображается дополнительная информацию в чате."
 
 L["options.about"] = "About"
 L["options.about.game-version"] = "Game Version"

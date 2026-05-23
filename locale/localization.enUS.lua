@@ -12,15 +12,8 @@ local L = EXT.Localization
 L["options.general"] = "General Options"
 L["options.general.minimap-button.name"] = "Minimap Button"
 L["options.general.minimap-button.tooltip"] = "When this is enabled, the minimap button is displayed."
-
-L["options.profiles"] = "Profiles"
-L["options.profiles.profile-mode"] = "Profile type"
-L["options.profiles.description"] = "Choose whether this character uses the account-wide profile or its own character profile."
-L["options.profiles.mode.global"] = "Account-wide"
-L["options.profiles.mode.character"] = "Character profile"
-L["options.profiles.use-global.name"] = "Use account-wide settings"
-L["options.profiles.reload.required"] = "Changing the profile type requires a UI reload."
-L["options.profiles.reload.confirm"] = "This change requires a UI reload. Do you want to reload the UI now?"
+L["options.general.debug-mode.name"] = "Debug Mode"
+L["options.general.debug-mode.tooltip"] = "Enabling the debug mode displays additional information in the chat."
 
 L["options.tooltip"] = "Tooltip"
 L["options.tooltip.expansion.name"] = "Show Expansion"
@@ -31,10 +24,6 @@ L["options.tooltip.item-level.name"] = "Show Item Level"
 L["options.tooltip.item-level.tooltip"] = "Displays the corresponding item level for items in the tooltip."
 L["options.tooltip.blank-line.name"] = "Insert Blank Line"
 L["options.tooltip.blank-line.tooltip"] = "Inserts a blank line in the tooltip before displaying the extension and category."
-
-L["options.other"] = "Other Options"
-L["options.other.debug-mode.name"] = "Debug Mode"
-L["options.other.debug-mode.tooltip"] = "Enabling the debug mode displays additional information in the chat."
 
 L["options.about"] = "About"
 L["options.about.game-version"] = "Game Version"

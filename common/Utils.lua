@@ -1,6 +1,7 @@
 local addonName, EXT = ...
 
 local L = EXT.Localization
+local AWL = ArcaneWizardLibrary
 
 local Utils = {}
 
@@ -9,7 +10,7 @@ local Utils = {}
 ---------------------
 
 function Utils:PrintDebug(msg)
-    if EXT.options.other["debug-mode"] then
+    if EXT.options.general["debug-mode"] then
 		DEFAULT_CHAT_FRAME:AddMessage(ORANGE_FONT_COLOR:WrapTextInColorCode(addonName .. " (Debug): ")  .. msg)
 	end
 end
@@ -21,19 +22,18 @@ end
 function Utils:InitializeDatabase()
     local defaults = {
         ["general"] = {
-				["minimap-button"] = {
-					["hide"] = false
-				}
-			},
-			["tooltip"] = {},
-			["other"] = {}
+			["minimap-button"] = {
+				["hide"] = false
+			}
+		},
+		["tooltip"] = {}
     }
 
-    local charKey = GetUnitName("player", true) .. "#" .. GetRealmName()
+    local charKey = AWL.Profiles:GetCharKey()
 
     if not Expositum_Options_v3 then
         Expositum_Options_v3 = {
-            ["global"] = defaults,
+            ["account"] = defaults,
             ["profiles"] = {},
             ["profileKeys"] = {}
         }
@@ -45,21 +45,19 @@ function Utils:InitializeDatabase()
 
     if not Expositum_Options_v3.profileKeys[charKey] then
         Expositum_Options_v3.profileKeys[charKey] = {
-			["use-global"] = true,
+			["use-account"] = true,
 			["open-settings"] = false
 		}
     end
 
 	EXT.options = {}
 
-    if Expositum_Options_v3.profileKeys[charKey]["use-global"] then
-		EXT.options.general = Expositum_Options_v3.global["general"]
-		EXT.options.tooltip = Expositum_Options_v3.global["tooltip"]
-		EXT.options.other   = Expositum_Options_v3.global["other"]
+    if Expositum_Options_v3.profileKeys[charKey]["use-account"] then
+		EXT.options.general = Expositum_Options_v3.account["general"]
+		EXT.options.tooltip = Expositum_Options_v3.account["tooltip"]
     else
 		EXT.options.general = Expositum_Options_v3.profiles[charKey]["general"]
 		EXT.options.tooltip = Expositum_Options_v3.profiles[charKey]["tooltip"]
-		EXT.options.other   = Expositum_Options_v3.profiles[charKey]["other"]
     end
 end
 

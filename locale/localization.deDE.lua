@@ -9,15 +9,8 @@ local L = EXT.Localization
 L["options.general"] = "Allgemeine Einstellungen"
 L["options.general.minimap-button.name"] = "Minimap Button"
 L["options.general.minimap-button.tooltip"] = "Bei Aktivierung wird der Minimap Button angezeigt."
-
-L["options.profiles"] = "Profile"
-L["options.profiles.profile-mode"] = "Profiltyp"
-L["options.profiles.description"] = "Lege fest, ob dieser Charakter das accountweite Profil oder ein eigenes Charakterprofil verwendet."
-L["options.profiles.mode.global"] = "Accountweit"
-L["options.profiles.mode.character"] = "Charakterprofil"
-L["options.profiles.use-global.name"] = "Globale Einstellungen nutzen"
-L["options.profiles.reload.required"] = "Das Wechseln des Profiltyps erfordert einen UI-Reload."
-L["options.profiles.reload.confirm"] = "Diese Änderung erfordert einen UI-Reload. Möchtest du das UI jetzt neu laden?"
+L["options.general.debug-mode.name"] = "Debugmodus"
+L["options.general.debug-mode.tooltip"] = "Die Aktivierung des Debugmodus zeigt zusätzliche Informationen im Chat an."
 
 L["options.tooltip"] = "Tooltip"
 L["options.tooltip.expansion.name"] = "Erweiterung anzeigen"
@@ -28,10 +21,6 @@ L["options.tooltip.item-level.name"] = "Itemlevel anzeigen"
 L["options.tooltip.item-level.tooltip"] = "Zeigt bei Gegenständen im Tooltip die dazugehörige Itemlevel an."
 L["options.tooltip.blank-line.name"] = "Leerzeile einfügen"
 L["options.tooltip.blank-line.tooltip"] = "Fügt eine Leerzeile im Tooltip vor der Anzeige von Erweiterung und Kategorie ein."
-
-L["options.other"] = "Sonstige Einstellungen"
-L["options.other.debug-mode.name"] = "Debugmodus"
-L["options.other.debug-mode.tooltip"] = "Die Aktivierung des Debugmodus zeigt zusätzliche Informationen im Chat an."
 
 L["options.about"] = "Über"
 L["options.about.game-version"] = "Spielversion"
