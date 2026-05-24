@@ -5,6 +5,16 @@ local AWL = ArcaneWizardLibrary
 
 local Utils = {}
 
+local charKey = AWL.Profiles:GetCharKey()
+
+----------------------
+--- Local Funtions ---
+----------------------
+
+local function GetOptionsDatabase()
+    return Expositum_Options_v3
+end
+
 ---------------------
 --- Main Funtions ---
 ---------------------
@@ -19,6 +29,36 @@ function Utils:PrintMessage(msg)
     DEFAULT_CHAT_FRAME:AddMessage(NORMAL_FONT_COLOR:WrapTextInColorCode(addonName .. ": ") .. msg)
 end
 
+function Utils:IsAccountProfile()
+    local dbOptions = GetOptionsDatabase()
+
+	return dbOptions.profileKeys[charKey]["use-account"]
+end
+
+function Utils:OpenSettingsOnLoading()
+    local dbOptions = GetOptionsDatabase()
+
+	if dbOptions.profileKeys[charKey]["open-settings"] then
+		Settings.OpenToCategory(EXT.MAIN_CATEGORY_ID)
+
+		dbOptions.profileKeys[charKey]["open-settings"] = false
+	end
+end
+
+function Utils:SetProfileSwitch(useAccount)
+    local dbOptions = GetOptionsDatabase()
+
+	dbOptions.profileKeys[charKey]["use-account"] = not useAccount
+	dbOptions.profileKeys[charKey]["open-settings"] = true
+end
+
+function Utils:ResetCharacterProfiles()
+    local dbOptions = GetOptionsDatabase()
+
+    dbOptions.profiles = {}
+    dbOptions.profileKeys = {}
+end
+
 function Utils:InitializeDatabase()
     local defaults = {
         ["general"] = {
@@ -29,8 +69,6 @@ function Utils:InitializeDatabase()
 		["tooltip"] = {}
     }
 
-    local charKey = AWL.Profiles:GetCharKey()
-
     if not Expositum_Options_v3 then
         Expositum_Options_v3 = {
             ["account"] = defaults,
@@ -39,12 +77,14 @@ function Utils:InitializeDatabase()
         }
     end
 
-    if not Expositum_Options_v3.profiles[charKey] then
-        Expositum_Options_v3.profiles[charKey] = defaults
+	local dbOptions = GetOptionsDatabase()
+
+    if not dbOptions.profiles[charKey] then
+        dbOptions.profiles[charKey] = defaults
     end
 
-    if not Expositum_Options_v3.profileKeys[charKey] then
-        Expositum_Options_v3.profileKeys[charKey] = {
+    if not dbOptions.profileKeys[charKey] then
+        dbOptions.profileKeys[charKey] = {
 			["use-account"] = true,
 			["open-settings"] = false
 		}
@@ -52,12 +92,12 @@ function Utils:InitializeDatabase()
 
 	EXT.options = {}
 
-    if Expositum_Options_v3.profileKeys[charKey]["use-account"] then
-		EXT.options.general = Expositum_Options_v3.account["general"]
-		EXT.options.tooltip = Expositum_Options_v3.account["tooltip"]
+    if dbOptions.profileKeys[charKey]["use-account"] then
+		EXT.options.general = dbOptions.account["general"]
+		EXT.options.tooltip = dbOptions.account["tooltip"]
     else
-		EXT.options.general = Expositum_Options_v3.profiles[charKey]["general"]
-		EXT.options.tooltip = Expositum_Options_v3.profiles[charKey]["tooltip"]
+		EXT.options.general = dbOptions.profiles[charKey]["general"]
+		EXT.options.tooltip = dbOptions.profiles[charKey]["tooltip"]
     end
 end
 

@@ -26,19 +26,13 @@ local minimapButtonProxy = setmetatable({}, {
     end,
 })
 
-local function IsAccountProfile()
-	return Expositum_Options_v3.profileKeys[AWL.Profiles:GetCharKey()]["use-account"]
-end
-
 local function ShowProfileSwitchConfirmation()
-	local charKey = AWL.Profiles:GetCharKey()
-	local useAccount = Expositum_Options_v3.profileKeys[charKey]["use-account"]
+	local useAccount = Utils:IsAccountProfile()
 
 	AWL.Dialogs:ShowConfirmDialog(
 		AWL.Profiles:GetSwitchConfirmText(useAccount),
 		function()
-			Expositum_Options_v3.profileKeys[charKey]["use-account"] = not useAccount
-			Expositum_Options_v3.profileKeys[charKey]["open-settings"] = true
+			Utils:SetProfileSwitch(useAccount)
 			ReloadUI()
 		end
 	)
@@ -48,8 +42,7 @@ local function ShowDeleteCharacterProfilesConfirmation()
 	AWL.Dialogs:ShowConfirmDialog(
 		AWL.Profiles:GetText("delete-character-profiles.confirm"),
 		function()
-			Expositum_Options_v3.profiles = {}
-			Expositum_Options_v3.profileKeys = {}
+			Utils:ResetCharacterProfiles()
 			ReloadUI()
 		end
 	)
@@ -133,14 +126,14 @@ function Options:Initialize()
 	-- Active Profile
 	AWL.Settings:AddInfoText(layout, {
 		leftText  = AWL.Profiles:GetText("profile-mode"),
-		rightText = AWL.Profiles:GetModeText(IsAccountProfile()),
+		rightText = AWL.Profiles:GetModeText(Utils:IsAccountProfile()),
 		height    = 30
 	})
 
 	-- Switch Profile
 	AWL.Settings:AddButton(layout, {
 		name       = AWL.Profiles:GetText("switch.name"),
-		buttonText = AWL.Profiles:GetSwitchButtonText(IsAccountProfile()),
+		buttonText = AWL.Profiles:GetSwitchButtonText(Utils:IsAccountProfile()),
 		tooltip    = AWL.Profiles:GetText("switch.tooltip"),
 		onClick    = ShowProfileSwitchConfirmation
 	})

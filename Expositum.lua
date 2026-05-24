@@ -83,13 +83,8 @@ function expositumFrame:ADDON_LOADED(_, addOnName)
         InitTooltipHooks()
 
         Utils:PrintDebug("Addon fully loaded.")
-		local charKey = AWL.Profiles:GetCharKey()
 
-		if Expositum_Options_v3.profileKeys[charKey]["open-settings"] then
-			Settings.OpenToCategory(EXT.MAIN_CATEGORY_ID)
-
-			Expositum_Options_v3.profileKeys[charKey]["open-settings"] = false
-		end
+		Utils:OpenSettingsOnLoading()
     end
 end
 
