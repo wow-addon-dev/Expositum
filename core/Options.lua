@@ -8,7 +8,7 @@ local AWL = ArcaneWizardLibrary
 local Options = {}
 
 ----------------------
---- Local Funtions ---
+--- Local Functions ---
 ----------------------
 
 local minimapButtonProxy = setmetatable({}, {
@@ -27,12 +27,12 @@ local minimapButtonProxy = setmetatable({}, {
 })
 
 local function ShowProfileSwitchConfirmation()
-	local useAccount = Utils:IsAccountProfile()
+	local useAccountProfile = Utils:IsAccountProfile()
 
 	AWL.Dialogs:ShowConfirmDialog(
-		AWL.Profiles:GetSwitchConfirmText(useAccount),
+		AWL.Profiles:GetSwitchConfirmText(useAccountProfile),
 		function()
-			Utils:SetProfileSwitch(useAccount)
+			Utils:ToggleProfileMode(useAccountProfile)
 			ReloadUI()
 		end
 	)
@@ -42,7 +42,7 @@ local function ShowDeleteCharacterProfilesConfirmation()
 	AWL.Dialogs:ShowConfirmDialog(
 		AWL.Profiles:GetText("delete-character-profiles.confirm"),
 		function()
-			Utils:ResetCharacterProfiles()
+			Utils:ResetAllCharacterProfiles()
 			ReloadUI()
 		end
 	)
@@ -126,8 +126,7 @@ function Options:Initialize()
 	-- Active Profile
 	AWL.Settings:AddInfoText(layout, {
 		leftText  = AWL.Profiles:GetText("profile-mode"),
-		rightText = AWL.Profiles:GetModeText(Utils:IsAccountProfile()),
-		height    = 30
+		rightText = AWL.Profiles:GetModeText(Utils:IsAccountProfile())
 	})
 
 	-- Switch Profile
@@ -151,26 +150,28 @@ function Options:Initialize()
     -- Game Version
     AWL.Settings:AddInfoText(layout, {
         leftText  = L["options.about.game-version"],
-        rightText = EXT.GAME_VERSION .. " (" .. EXT.GAME_FLAVOR .. ")"
+        rightText = EXT.GAME_VERSION .. " (" .. EXT.GAME_FLAVOR .. ")",
+		height    = "compact"
     })
 
     -- Addon Version
     AWL.Settings:AddInfoText(layout, {
         leftText  = L["options.about.addon-version"],
-        rightText = EXT.ADDON_VERSION .. " (" .. EXT.ADDON_BUILD_DATE .. ")"
+        rightText = EXT.ADDON_VERSION .. " (" .. EXT.ADDON_BUILD_DATE .. ")",
+		height    = "compact"
     })
 
     -- Library Version
     AWL.Settings:AddInfoText(layout, {
         leftText  = L["options.about.lib-version"],
-        rightText = AWL.ADDON_VERSION .. " (" .. AWL.ADDON_BUILD_DATE .. ")"
+        rightText = AWL.ADDON_VERSION .. " (" .. AWL.ADDON_BUILD_DATE .. ")",
+		height    = "compact"
     })
 
     -- Author
     AWL.Settings:AddInfoText(layout, {
         leftText  = L["options.about.author"],
-        rightText = EXT.ADDON_AUTHOR,
-        height    = 30
+        rightText = EXT.ADDON_AUTHOR
     })
 
     -- GitHub Link

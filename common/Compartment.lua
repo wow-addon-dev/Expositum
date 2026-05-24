@@ -5,7 +5,7 @@ local L = EXT.Localization
 local Utils = EXT.Utils
 
 ---------------------
---- Main Funtions ---
+--- Main Functions ---
 ---------------------
 
 function Expositum_CompartmentOnEnter(self, button)

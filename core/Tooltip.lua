@@ -1,11 +1,12 @@
 local _, EXT = ...
 
 local L = EXT.Localization
+local Utils = EXT.Utils
 
 local Tooltip = {}
 
 ----------------------
---- Local funtions ---
+--- Local functions ---
 ----------------------
 
 local tooltipLineStates = setmetatable({}, { __mode = "k" })
@@ -81,8 +82,46 @@ local function GetExpansionName(expansionID)
 end
 
 ---------------------
---- Main funtions ---
+--- Main functions ---
 ---------------------
+
+ function Tooltip:Initialize()
+    if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then
+        local function OnTooltipSetItem(tooltip)
+            if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) then return end
+
+            local _, link = tooltip:GetItem()
+            if link then
+                self:ProcessTooltipClassic(tooltip, link)
+            end
+        end
+
+        GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+        ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+        if ShoppingTooltip1 then ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
+        if ShoppingTooltip2 then ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
+	elseif EXT.GAME_TYPE_MAINLINE then
+        TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
+            if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) or not data then return end
+
+            local link = (data.hyperlink or data.link)
+
+            if not link and data.guid and C_Item.GetItemLinkByGUID then
+                link = C_Item.GetItemLinkByGUID(data.guid)
+            end
+
+            if not link and data.id then
+                link = ("item:%d"):format(data.id)
+            end
+
+            if link then
+                self:ProcessTooltip(tooltip, link)
+            end
+        end)
+    else
+        Utils:PrintDebug("Unsupported game type.")
+    end
+end
 
 function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
 	if not itemLink then return end
@@ -114,13 +153,14 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if itemLevel == nil or itemType == nil or itemSubType == nil or expansionID == nil then return end
 
 	local expansionName = GetExpansionName(expansionID)
+	local showExpansion = EXT.options.tooltip["expansion"] and expansionName
 	local lineState = GetTooltipLineState(tooltip, itemLink)
 
-	if (EXT.options.tooltip["expansion"] or EXT.options.tooltip["category"] or EXT.options.tooltip["item-level"]) and EXT.options.tooltip["blank-line"] then
+	if (showExpansion or EXT.options.tooltip["category"] or EXT.options.tooltip["item-level"]) and EXT.options.tooltip["blank-line"] then
 		AddBlankLine(tooltip, lineState)
 	end
 
-	if EXT.options.tooltip["expansion"] then
+	if showExpansion then
 		AddDoubleLine(tooltip, lineState, "expansion", L["tooltip.expansion"], "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r")
 	end
 

@@ -23,7 +23,7 @@ L["options.tooltip.category.tooltip"] = "Displays the corresponding category for
 L["options.tooltip.item-level.name"] = "Show Item Level"
 L["options.tooltip.item-level.tooltip"] = "Displays the corresponding item level for items in the tooltip."
 L["options.tooltip.blank-line.name"] = "Insert Blank Line"
-L["options.tooltip.blank-line.tooltip"] = "Inserts a blank line in the tooltip before displaying the extension and category."
+L["options.tooltip.blank-line.tooltip"] = "Inserts a blank line in the tooltip before displaying the expansion and category."
 
 L["options.about"] = "About"
 L["options.about.game-version"] = "Game Version"

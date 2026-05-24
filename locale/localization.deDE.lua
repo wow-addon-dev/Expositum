@@ -18,7 +18,7 @@ L["options.tooltip.expansion.tooltip"] = "Zeigt bei Gegenständen im Tooltip die
 L["options.tooltip.category.name"] = "Kategorie anzeigen"
 L["options.tooltip.category.tooltip"] = "Zeigt bei Gegenständen im Tooltip die dazugehörige Kategorie an."
 L["options.tooltip.item-level.name"] = "Itemlevel anzeigen"
-L["options.tooltip.item-level.tooltip"] = "Zeigt bei Gegenständen im Tooltip die dazugehörige Itemlevel an."
+L["options.tooltip.item-level.tooltip"] = "Zeigt bei Gegenständen im Tooltip das dazugehörige Itemlevel an."
 L["options.tooltip.blank-line.name"] = "Leerzeile einfügen"
 L["options.tooltip.blank-line.tooltip"] = "Fügt eine Leerzeile im Tooltip vor der Anzeige von Erweiterung und Kategorie ein."
 

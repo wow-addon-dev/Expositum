@@ -1,22 +1,35 @@
 local addonName, EXT = ...
 
 local L = EXT.Localization
+
 local AWL = ArcaneWizardLibrary
 
 local Utils = {}
 
-local charKey = AWL.Profiles:GetCharKey()
-
 ----------------------
---- Local Funtions ---
+--- Local Functions ---
 ----------------------
 
-local function GetOptionsDatabase()
-    return Expositum_Options_v3
+local function GetCharKey()
+	return AWL.Profiles:GetCharKey()
+end
+
+local function CopyTable(source)
+    local target = {}
+
+    for key, value in pairs(source) do
+        if type(value) == "table" then
+            target[key] = CopyTable(value)
+        else
+            target[key] = value
+        end
+    end
+
+    return target
 end
 
 ---------------------
---- Main Funtions ---
+--- Main Functions ---
 ---------------------
 
 function Utils:PrintDebug(msg)
@@ -30,36 +43,43 @@ function Utils:PrintMessage(msg)
 end
 
 function Utils:IsAccountProfile()
-    local dbOptions = GetOptionsDatabase()
+	local charKey = GetCharKey()
 
-	return dbOptions.profileKeys[charKey]["use-account"]
+	return Expositum_Options_v3.profileKeys[charKey]["use-account"]
 end
 
 function Utils:OpenSettingsOnLoading()
-    local dbOptions = GetOptionsDatabase()
+	local charKey = GetCharKey()
 
-	if dbOptions.profileKeys[charKey]["open-settings"] then
+	if Expositum_Options_v3.profileKeys[charKey]["open-settings"] then
 		Settings.OpenToCategory(EXT.MAIN_CATEGORY_ID)
 
-		dbOptions.profileKeys[charKey]["open-settings"] = false
+		Expositum_Options_v3.profileKeys[charKey]["open-settings"] = false
 	end
 end
 
-function Utils:SetProfileSwitch(useAccount)
-    local dbOptions = GetOptionsDatabase()
+function Utils:ToggleProfileMode(useAccountProfile)
+	local charKey = GetCharKey()
 
-	dbOptions.profileKeys[charKey]["use-account"] = not useAccount
-	dbOptions.profileKeys[charKey]["open-settings"] = true
+	Expositum_Options_v3.profileKeys[charKey]["use-account"] = not useAccountProfile
+	Expositum_Options_v3.profileKeys[charKey]["open-settings"] = true
 end
 
-function Utils:ResetCharacterProfiles()
-    local dbOptions = GetOptionsDatabase()
+function Utils:ResetAllCharacterProfiles()
+	local charKey = GetCharKey()
 
-    dbOptions.profiles = {}
-    dbOptions.profileKeys = {}
+    Expositum_Options_v3.profiles = {}
+    Expositum_Options_v3.profileKeys = {}
+
+	Expositum_Options_v3.profileKeys[charKey] = {
+		["use-account"] = true,
+		["open-settings"] = true
+	}
 end
 
 function Utils:InitializeDatabase()
+	local charKey = GetCharKey()
+
     local defaults = {
         ["general"] = {
 			["minimap-button"] = {
@@ -71,20 +91,18 @@ function Utils:InitializeDatabase()
 
     if not Expositum_Options_v3 then
         Expositum_Options_v3 = {
-            ["account"] = defaults,
+            ["account"] = CopyTable(defaults),
             ["profiles"] = {},
             ["profileKeys"] = {}
         }
     end
 
-	local dbOptions = GetOptionsDatabase()
-
-    if not dbOptions.profiles[charKey] then
-        dbOptions.profiles[charKey] = defaults
+    if not Expositum_Options_v3.profiles[charKey] then
+        Expositum_Options_v3.profiles[charKey] = CopyTable(defaults)
     end
 
-    if not dbOptions.profileKeys[charKey] then
-        dbOptions.profileKeys[charKey] = {
+    if not Expositum_Options_v3.profileKeys[charKey] then
+        Expositum_Options_v3.profileKeys[charKey] = {
 			["use-account"] = true,
 			["open-settings"] = false
 		}
@@ -92,12 +110,12 @@ function Utils:InitializeDatabase()
 
 	EXT.options = {}
 
-    if dbOptions.profileKeys[charKey]["use-account"] then
-		EXT.options.general = dbOptions.account["general"]
-		EXT.options.tooltip = dbOptions.account["tooltip"]
+    if Expositum_Options_v3.profileKeys[charKey]["use-account"] then
+		EXT.options.general = Expositum_Options_v3.account["general"]
+		EXT.options.tooltip = Expositum_Options_v3.account["tooltip"]
     else
-		EXT.options.general = dbOptions.profiles[charKey]["general"]
-		EXT.options.tooltip = dbOptions.profiles[charKey]["tooltip"]
+		EXT.options.general = Expositum_Options_v3.profiles[charKey]["general"]
+		EXT.options.tooltip = Expositum_Options_v3.profiles[charKey]["tooltip"]
     end
 end
 
