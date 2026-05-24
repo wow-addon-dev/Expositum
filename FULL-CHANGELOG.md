@@ -1,3 +1,9 @@
+**v2.4 (2026-05-24)**
+- Added: Profile settings with account profile and character profile selection
+- Added: TOC version for patch 12.0.7 [retail]
+- Updated: deDE, enUS, ruRU localization
+- Minor code adjustments
+
 **v2.3 (2026-05-10)**
 - Added: TOC version for patch 5.5.4 [mist of pandaria - classic]
 - Removed: TOC version for patch 12.0.1 [retail]
