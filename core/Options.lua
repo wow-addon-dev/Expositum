@@ -7,9 +7,9 @@ local AWL = ArcaneWizardLibrary
 
 local Options = {}
 
-----------------------
+-----------------------
 --- Local Functions ---
-----------------------
+-----------------------
 
 local minimapButtonProxy = setmetatable({}, {
     __index = function(_, key)

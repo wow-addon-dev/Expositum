@@ -6,9 +6,9 @@ local AWL = ArcaneWizardLibrary
 
 local Utils = {}
 
-----------------------
+-----------------------
 --- Local Functions ---
-----------------------
+-----------------------
 
 local function GetCharKey()
 	return AWL.Profiles:GetCharKey()
@@ -28,9 +28,9 @@ local function CopyTable(source)
     return target
 end
 
----------------------
+----------------------
 --- Main Functions ---
----------------------
+----------------------
 
 function Utils:PrintDebug(msg)
     if EXT.options.general["debug-mode"] then

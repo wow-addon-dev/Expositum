@@ -5,9 +5,9 @@ local Utils = EXT.Utils
 
 local Tooltip = {}
 
-----------------------
---- Local functions ---
-----------------------
+-----------------------
+--- Local Functions ---
+-----------------------
 
 local tooltipLineStates = setmetatable({}, { __mode = "k" })
 local tooltipResetHooks = setmetatable({}, { __mode = "k" })
@@ -81,9 +81,9 @@ local function GetExpansionName(expansionID)
 	return nil
 end
 
----------------------
---- Main functions ---
----------------------
+----------------------
+--- Main Functions ---
+----------------------
 
  function Tooltip:Initialize()
     if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then

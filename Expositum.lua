@@ -5,9 +5,9 @@ local Utils = EXT.Utils
 local Options = EXT.Options
 local Tooltip = EXT.Tooltip
 
-----------------------
---- Local functions ---
-----------------------
+-----------------------
+--- Local Functions ---
+-----------------------
 
 local function SlashCommand(msg, editbox)
     if not msg or msg:trim() == "" then
@@ -27,9 +27,9 @@ end
 
 local ExpositumFrame = CreateFrame("Frame", "Expositum")
 
----------------------
---- Main functions ---
----------------------
+----------------------
+--- Main Functions ---
+----------------------
 
 function ExpositumFrame:OnEvent(event, ...)
     self[event](self, event, ...)
