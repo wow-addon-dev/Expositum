@@ -24,8 +24,8 @@ local function CopyTable(source)
 	return target
 end
 
-local function GetCharKey()
-	return AWL.Utils:GetCharKey()
+local function GetCharacterRealmKey()
+	return AWL.Utils:GetCharacterRealmKey()
 end
 
 ------------------------
@@ -43,43 +43,43 @@ function Utils:PrintMessage(msg)
 end
 
 function Utils:IsAccountProfile()
-	local charKey = GetCharKey()
+	local characterRealmKey = GetCharacterRealmKey()
 
-	return Expositum_Options_v3.profileKeys[charKey]["use-account"]
+	return Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"]
 end
 
 function Utils:OpenSettingsOnLoading()
-	local charKey = GetCharKey()
+	local characterRealmKey = GetCharacterRealmKey()
 
-	if Expositum_Options_v3.profileKeys[charKey]["open-settings"] then
+	if Expositum_Options_v3.profileKeys[characterRealmKey]["open-settings"] then
 		Settings.OpenToCategory(EXT.MAIN_CATEGORY_ID)
 
-		Expositum_Options_v3.profileKeys[charKey]["open-settings"] = false
+		Expositum_Options_v3.profileKeys[characterRealmKey]["open-settings"] = false
 	end
 end
 
 function Utils:ToggleProfileMode()
-	local charKey = GetCharKey()
+	local characterRealmKey = GetCharacterRealmKey()
 	local useAccountProfile = self:IsAccountProfile()
 
-	Expositum_Options_v3.profileKeys[charKey]["use-account"] = not useAccountProfile
-	Expositum_Options_v3.profileKeys[charKey]["open-settings"] = true
+	Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"] = not useAccountProfile
+	Expositum_Options_v3.profileKeys[characterRealmKey]["open-settings"] = true
 end
 
 function Utils:ResetAllCharacterProfiles()
-	local charKey = GetCharKey()
+	local characterRealmKey = GetCharacterRealmKey()
 
 	Expositum_Options_v3.profiles = {}
 	Expositum_Options_v3.profileKeys = {}
 
-	Expositum_Options_v3.profileKeys[charKey] = {
+	Expositum_Options_v3.profileKeys[characterRealmKey] = {
 		["use-account"] = true,
 		["open-settings"] = true
 	}
 end
 
 function Utils:InitializeDatabase()
-	local charKey = GetCharKey()
+	local characterRealmKey = GetCharacterRealmKey()
 
 	local defaults = {
 		["general"] = {
@@ -98,23 +98,23 @@ function Utils:InitializeDatabase()
 		}
 	end
 
-	if not Expositum_Options_v3.profiles[charKey] then
-		Expositum_Options_v3.profiles[charKey] = CopyTable(defaults)
+	if not Expositum_Options_v3.profiles[characterRealmKey] then
+		Expositum_Options_v3.profiles[characterRealmKey] = CopyTable(defaults)
 	end
 
-	if not Expositum_Options_v3.profileKeys[charKey] then
-		Expositum_Options_v3.profileKeys[charKey] = {
+	if not Expositum_Options_v3.profileKeys[characterRealmKey] then
+		Expositum_Options_v3.profileKeys[characterRealmKey] = {
 			["use-account"] = true,
 			["open-settings"] = false
 		}
 	end
 
-	if Expositum_Options_v3.profileKeys[charKey]["use-account"] then
+	if Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"] then
 		EXT.settings.general = Expositum_Options_v3.account["general"]
 		EXT.settings.tooltip = Expositum_Options_v3.account["tooltip"]
 	else
-		EXT.settings.general = Expositum_Options_v3.profiles[charKey]["general"]
-		EXT.settings.tooltip = Expositum_Options_v3.profiles[charKey]["tooltip"]
+		EXT.settings.general = Expositum_Options_v3.profiles[characterRealmKey]["general"]
+		EXT.settings.tooltip = Expositum_Options_v3.profiles[characterRealmKey]["tooltip"]
 	end
 end
 
