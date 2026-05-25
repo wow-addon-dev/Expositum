@@ -14,9 +14,15 @@ local Options = {}
 
 local minimapButtonProxy = setmetatable({}, {
     __index = function(_, key)
-        return not EXT.settings.general["minimap-button"]["hide"]
+		if key == "hide" then
+			return not EXT.settings.general["minimap-button"]["hide"]
+		end
     end,
     __newindex = function(_, key, value)
+		if key ~= "hide" then
+			return
+		end
+
         EXT.settings.general["minimap-button"]["hide"] = not value
 
         if value then
