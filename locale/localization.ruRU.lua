@@ -32,7 +32,7 @@ L["options.about.button-github.name"] = "Feedback & Help"
 L["options.about.button-github.tooltip"] = "Opens a popup window with a link to GitHub."
 L["options.about.button-github.button"] = "GitHub"
 
--- Generel
+-- General
 
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Right-click|r to open the options."
 

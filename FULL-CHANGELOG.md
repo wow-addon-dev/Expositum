@@ -5,7 +5,7 @@
 - Minor code adjustments
 
 **v2.3 (2026-05-10)**
-- Added: TOC version for patch 5.5.4 [mist of pandaria - classic]
+- Added: TOC version for patch 5.5.4 [mists of pandaria - classic]
 - Removed: TOC version for patch 12.0.1 [retail]
 
 **v2.2 (2026-05-01)**
@@ -19,19 +19,19 @@
 - Added: Required dependency 'Arcane Wizard: Library'
 - Changed: License
 - Updated: Addon description
-- Refactoring of the addon structure and source codes
+- Refactoring of the addon structure and source code
 
 **v2.0-alpha.3 (2026-04-16)**
 - Added: Required dependency 'Arcane Wizard: Library'
-- Refactoring of the addon structure and source codes
+- Refactoring of the addon structure and source code
 
 **v2.0-alpha.2 (2026-04-15)**
 - Added: Required dependency 'Arcane Wizard: Library'
-- Refactoring of the addon structure and source codes
+- Refactoring of the addon structure and source code
 
 **v2.0-alpha.1 (2026-04-12)**
 - Added: Embedded library 'WoW-AD-LibShared' (r1)
-- Refactoring of the addon structure and source codes
+- Refactoring of the addon structure and source code
 
 **v1.28 (2026-03-25)**
 - Fixed: The options menu could not be loaded
@@ -79,16 +79,16 @@
 **v1.15 (2025-12-18)**
 - Added: TOC version for patch 12.0.1 [retail]
 - Removed: TOC version for patch 11.2.5 [retail]
-- Removed: TOC version for patch 5.5.2 [mist of pandaria - classic]
+- Removed: TOC version for patch 5.5.2 [mists of pandaria - classic]
 
 **v1.14 (2025-11-23)**
 - Added: TOC version for patch 12.0.0 [retail]
-- Added: TOC version for patch 5.5.3 [mist of pandaria - classic]
-- Removed: TOC version for patch 5.5.1 [mist of pandaria - classic]
+- Added: TOC version for patch 5.5.3 [mists of pandaria - classic]
+- Removed: TOC version for patch 5.5.1 [mists of pandaria - classic]
 
 **v1.13 (2025-10-28)**
 - Added: TOC version for patch 1.15.8 [classic]
-- Added: TOC version for patch 5.5.2 [mist of pandaria - classic]
+- Added: TOC version for patch 5.5.2 [mists of pandaria - classic]
 - Added: TOC version for patch 11.2.7 [retail]
 - Removed: TOC version for patch 1.15.7 [classic]
 
@@ -96,7 +96,7 @@
 - Removed: TOC version for patch 11.2.0 [retail]
 
 **v1.11 (2025-10-04)**
-- Removed: TOC version for patch 5.5.0 [mist of pandaria - classic]
+- Removed: TOC version for patch 5.5.0 [mists of pandaria - classic]
 
 **v1.10 (2025-09-21)**
 - Minor code adjustments
@@ -105,7 +105,7 @@
 - Changed: Output of debug messages
 
 **v1.8 (2025-09-02)**
-- Added: TOC version for patch 5.5.1 [mist of pandaria - classic]
+- Added: TOC version for patch 5.5.1 [mists of pandaria - classic]
 - Updated: ruRU localization (#2 - Thanks to Hollicsh)
 
 **v1.7 (2025-08-27)**

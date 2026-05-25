@@ -7,8 +7,8 @@ local L = EXT.Localization
 -- Options
 
 L["options.general"] = "Allgemeine Einstellungen"
-L["options.general.minimap-button.name"] = "Minimap Button"
-L["options.general.minimap-button.tooltip"] = "Bei Aktivierung wird der Minimap Button angezeigt."
+L["options.general.minimap-button.name"] = "Minimap-Button"
+L["options.general.minimap-button.tooltip"] = "Bei Aktivierung wird der Minimap-Button angezeigt."
 L["options.general.debug-mode.name"] = "Debugmodus"
 L["options.general.debug-mode.tooltip"] = "Die Aktivierung des Debugmodus zeigt zusätzliche Informationen im Chat an."
 

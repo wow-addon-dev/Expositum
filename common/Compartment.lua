@@ -2,7 +2,7 @@ local addonName, EXT = ...
 
 local L = EXT.Localization
 
-local Utils = EXT.Utils
+local Utils = EXT.modules.Utils
 
 ----------------------
 --- Main Functions ---

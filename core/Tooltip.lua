@@ -1,7 +1,8 @@
 local _, EXT = ...
 
 local L = EXT.Localization
-local Utils = EXT.Utils
+
+local Utils = EXT.modules.Utils
 
 local Tooltip = {}
 
@@ -85,7 +86,7 @@ end
 --- Main Functions ---
 ----------------------
 
- function Tooltip:Initialize()
+function Tooltip:Initialize()
     if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then
         local function OnTooltipSetItem(tooltip)
             if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) then return end
@@ -132,15 +133,15 @@ function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
 
 	local lineState = GetTooltipLineState(tooltip, itemLink)
 
-	if (EXT.options.tooltip["category"] or EXT.options.tooltip["item-level"]) and EXT.options.tooltip["blank-line"] then
+	if (EXT.settings.tooltip["category"] or EXT.settings.tooltip["item-level"]) and EXT.settings.tooltip["blank-line"] then
 		AddBlankLine(tooltip, lineState)
 	end
 
-	if EXT.options.tooltip["category"] then
+	if EXT.settings.tooltip["category"] then
 		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
 	end
 
-	if EXT.options.tooltip["item-level"] then
+	if EXT.settings.tooltip["item-level"] then
 		AddDoubleLine(tooltip, lineState, "item-level", L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
 end
@@ -153,10 +154,10 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if itemLevel == nil or itemType == nil or itemSubType == nil or expansionID == nil then return end
 
 	local expansionName = GetExpansionName(expansionID)
-	local showExpansion = EXT.options.tooltip["expansion"] and expansionName
+	local showExpansion = EXT.settings.tooltip["expansion"] and expansionName
 	local lineState = GetTooltipLineState(tooltip, itemLink)
 
-	if (showExpansion or EXT.options.tooltip["category"] or EXT.options.tooltip["item-level"]) and EXT.options.tooltip["blank-line"] then
+	if (showExpansion or EXT.settings.tooltip["category"] or EXT.settings.tooltip["item-level"]) and EXT.settings.tooltip["blank-line"] then
 		AddBlankLine(tooltip, lineState)
 	end
 
@@ -164,13 +165,13 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 		AddDoubleLine(tooltip, lineState, "expansion", L["tooltip.expansion"], "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r")
 	end
 
-	if EXT.options.tooltip["category"] then
+	if EXT.settings.tooltip["category"] then
 		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
 	end
 
-	if EXT.options.tooltip["item-level"] then
+	if EXT.settings.tooltip["item-level"] then
 		AddDoubleLine(tooltip, lineState, "item-level", L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
 end
 
-EXT.Tooltip = Tooltip
+EXT.modules.Tooltip = Tooltip

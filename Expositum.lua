@@ -1,9 +1,16 @@
 local addonName, EXT = ...
 
-local L = EXT.Localization
-local Utils = EXT.Utils
-local Options = EXT.Options
-local Tooltip = EXT.Tooltip
+-- local L = EXT.Localization
+
+local Utils = EXT.modules.Utils
+local Options = EXT.modules.Options
+local Tooltip = EXT.modules.Tooltip
+
+--------------
+--- Frames ---
+--------------
+
+local ExpositumFrame = CreateFrame("Frame", "Expositum")
 
 -----------------------
 --- Local Functions ---
@@ -20,12 +27,6 @@ local function SlashCommand(msg, editbox)
         Utils:PrintDebug("No arguments will be accepted.")
 	end
 end
-
---------------
---- Frames ---
---------------
-
-local ExpositumFrame = CreateFrame("Frame", "Expositum")
 
 ----------------------
 --- Main Functions ---

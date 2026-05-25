@@ -1,7 +1,8 @@
 local addonName, EXT = ...
 
 local L = EXT.Localization
-local Utils = EXT.Utils
+
+local Utils = EXT.modules.Utils
 
 local AWL = ArcaneWizardLibrary
 
@@ -13,10 +14,10 @@ local Options = {}
 
 local minimapButtonProxy = setmetatable({}, {
     __index = function(_, key)
-        return not EXT.options.general["minimap-button"]["hide"]
+        return not EXT.settings.general["minimap-button"]["hide"]
     end,
     __newindex = function(_, key, value)
-        EXT.options.general["minimap-button"]["hide"] = not value
+        EXT.settings.general["minimap-button"]["hide"] = not value
 
         if value then
             Utils.minimapButton:Show("Expositum")
@@ -32,7 +33,7 @@ local function ShowProfileSwitchConfirmation()
 	AWL.Dialogs:ShowConfirmDialog(
 		AWL.Profiles:GetSwitchConfirmText(useAccountProfile),
 		function()
-			Utils:ToggleProfileMode(useAccountProfile)
+			Utils:ToggleProfileMode()
 			ReloadUI()
 		end
 	)
@@ -69,7 +70,7 @@ function Options:Initialize()
 
     -- Debug Mode
     AWL.Settings:AddCheckbox(category, {
-        variableTable = EXT.options.general,
+        variableTable = EXT.settings.general,
         settingKey    = addonName .. "_debug-mode",
         variableName  = "debug-mode",
         name          = L["options.general.debug-mode.name"],
@@ -82,7 +83,7 @@ function Options:Initialize()
 	 -- Expansion Check
     if EXT.GAME_TYPE_MAINLINE then
         AWL.Settings:AddCheckbox(category, {
-            variableTable = EXT.options.tooltip,
+            variableTable = EXT.settings.tooltip,
             settingKey    = addonName .. "_expansion",
             variableName  = "expansion",
             name          = L["options.tooltip.expansion.name"],
@@ -93,7 +94,7 @@ function Options:Initialize()
 
     -- Category
     AWL.Settings:AddCheckbox(category, {
-        variableTable = EXT.options.tooltip,
+        variableTable = EXT.settings.tooltip,
         settingKey    = addonName .. "_category",
         variableName  = "category",
         name          = L["options.tooltip.category.name"],
@@ -103,7 +104,7 @@ function Options:Initialize()
 
     -- Item Level
     AWL.Settings:AddCheckbox(category, {
-        variableTable = EXT.options.tooltip,
+        variableTable = EXT.settings.tooltip,
         settingKey    = addonName .. "_item-level",
         variableName  = "item-level",
         name          = L["options.tooltip.item-level.name"],
@@ -113,7 +114,7 @@ function Options:Initialize()
 
     -- Blank Line
     AWL.Settings:AddCheckbox(category, {
-        variableTable = EXT.options.tooltip,
+        variableTable = EXT.settings.tooltip,
         settingKey    = addonName .. "_blank-line",
         variableName  = "blank-line",
         name          = L["options.tooltip.blank-line.name"],
@@ -189,4 +190,4 @@ function Options:Initialize()
     EXT.MAIN_CATEGORY_ID = category:GetID()
 end
 
-EXT.Options = Options
+EXT.modules.Options = Options

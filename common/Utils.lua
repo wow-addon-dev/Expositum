@@ -10,10 +10,6 @@ local Utils = {}
 --- Local Functions ---
 -----------------------
 
-local function GetCharKey()
-	return AWL.Profiles:GetCharKey()
-end
-
 local function CopyTable(source)
     local target = {}
 
@@ -28,12 +24,16 @@ local function CopyTable(source)
     return target
 end
 
+local function GetCharKey()
+	return AWL.Profiles:GetCharKey()
+end
+
 ----------------------
 --- Main Functions ---
 ----------------------
 
 function Utils:PrintDebug(msg)
-    if EXT.options.general["debug-mode"] then
+    if EXT.settings.general["debug-mode"] then
 		DEFAULT_CHAT_FRAME:AddMessage(ORANGE_FONT_COLOR:WrapTextInColorCode(addonName .. " (Debug): ")  .. msg)
 	end
 end
@@ -58,8 +58,9 @@ function Utils:OpenSettingsOnLoading()
 	end
 end
 
-function Utils:ToggleProfileMode(useAccountProfile)
+function Utils:ToggleProfileMode()
 	local charKey = GetCharKey()
+	local useAccountProfile = self:IsAccountProfile()
 
 	Expositum_Options_v3.profileKeys[charKey]["use-account"] = not useAccountProfile
 	Expositum_Options_v3.profileKeys[charKey]["open-settings"] = true
@@ -108,14 +109,12 @@ function Utils:InitializeDatabase()
 		}
     end
 
-	EXT.options = {}
-
     if Expositum_Options_v3.profileKeys[charKey]["use-account"] then
-		EXT.options.general = Expositum_Options_v3.account["general"]
-		EXT.options.tooltip = Expositum_Options_v3.account["tooltip"]
+		EXT.settings.general = Expositum_Options_v3.account["general"]
+		EXT.settings.tooltip = Expositum_Options_v3.account["tooltip"]
     else
-		EXT.options.general = Expositum_Options_v3.profiles[charKey]["general"]
-		EXT.options.tooltip = Expositum_Options_v3.profiles[charKey]["tooltip"]
+		EXT.settings.general = Expositum_Options_v3.profiles[charKey]["general"]
+		EXT.settings.tooltip = Expositum_Options_v3.profiles[charKey]["tooltip"]
     end
 end
 
@@ -142,7 +141,7 @@ function Utils:InitializeMinimapButton()
     })
 
     self.minimapButton = LibStub("LibDBIcon-1.0")
-    self.minimapButton:Register("Expositum", LDB, EXT.options.general["minimap-button"])
+    self.minimapButton:Register("Expositum", LDB, EXT.settings.general["minimap-button"])
 end
 
-EXT.Utils = Utils
+EXT.modules.Utils = Utils
