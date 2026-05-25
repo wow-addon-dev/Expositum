@@ -20,7 +20,7 @@ L["options.tooltip.category.tooltip"] = "Отображает соответст
 L["options.tooltip.item-level.name"] = "Показывать уровень предмета"
 L["options.tooltip.item-level.tooltip"] = "Отображает соответствующий уровень предмета для предметов во всплывающей подсказке."
 L["options.tooltip.blank-line.name"] = "Вставить пустую строку"
-L["options.tooltip.blank-line.tooltip"] = "Вставляет пустую строку в подсказку перед отображением расширения и категории."
+L["options.tooltip.blank-line.tooltip"] = "Вставляет пустую строку в подсказку перед дополнительной информацией о предмете."
 
 L["options.about"] = "About"
 L["options.about.game-version"] = "Game Version"
@@ -29,7 +29,7 @@ L["options.about.lib-version"] = "Library Version"
 L["options.about.author"] = "Author"
 
 L["options.about.button-github.name"] = "Feedback & Help"
-L["options.about.button-github.tooltip"] = "Opens a popup window with a link to GitHub."
+L["options.about.button-github.tooltip"] = "Открывает всплывающее окно со ссылкой на GitHub."
 L["options.about.button-github.button"] = "GitHub"
 
 -- General

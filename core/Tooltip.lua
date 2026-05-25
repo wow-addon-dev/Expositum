@@ -82,6 +82,14 @@ local function GetExpansionName(expansionID)
 	return nil
 end
 
+local function GetCategoryText(itemType, itemSubType)
+	if itemSubType and itemSubType ~= "" then
+		return itemType .. " (" .. itemSubType .. ")"
+	end
+
+	return itemType
+end
+
 ----------------------
 --- Main Functions ---
 ----------------------
@@ -138,7 +146,7 @@ function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
 	end
 
 	if EXT.settings.tooltip["category"] then
-		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
+		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r")
 	end
 
 	if EXT.settings.tooltip["item-level"] then
@@ -166,7 +174,7 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	end
 
 	if EXT.settings.tooltip["category"] then
-		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. itemType .. " (" .. itemSubType .. ")|r")
+		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r")
 	end
 
 	if EXT.settings.tooltip["item-level"] then

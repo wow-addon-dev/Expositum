@@ -33,28 +33,6 @@ local minimapButtonProxy = setmetatable({}, {
     end,
 })
 
-local function ShowProfileSwitchConfirmation()
-	local useAccountProfile = Utils:IsAccountProfile()
-
-	AWL.Dialogs:ShowConfirmDialog(
-		AWL.Profiles:GetSwitchConfirmText(useAccountProfile),
-		function()
-			Utils:ToggleProfileMode()
-			ReloadUI()
-		end
-	)
-end
-
-local function ShowDeleteCharacterProfilesConfirmation()
-	AWL.Dialogs:ShowConfirmDialog(
-		AWL.Profiles:GetText("delete-character-profiles.confirm"),
-		function()
-			Utils:ResetAllCharacterProfiles()
-			ReloadUI()
-		end
-	)
-end
-
 ----------------------
 --- Main Functions ---
 ----------------------
@@ -128,28 +106,18 @@ function Options:Initialize()
         default       = true
     })
 
-	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(AWL.Profiles:GetText("section-header")))
-
-	-- Active Profile
-	AWL.Settings:AddInfoText(layout, {
-		leftText  = AWL.Profiles:GetText("profile-mode"),
-		rightText = AWL.Profiles:GetModeText(Utils:IsAccountProfile())
-	})
-
-	-- Switch Profile
-	AWL.Settings:AddButton(layout, {
-		name       = AWL.Profiles:GetText("switch.name"),
-		buttonText = AWL.Profiles:GetSwitchButtonText(Utils:IsAccountProfile()),
-		tooltip    = AWL.Profiles:GetText("switch.tooltip"),
-		onClick    = ShowProfileSwitchConfirmation
-	})
-
-	-- Delete Character Profiles
-	AWL.Settings:AddButton(layout, {
-		name       = AWL.Profiles:GetText("delete-character-profiles.name"),
-		buttonText = AWL.Profiles:GetText("delete-character-profiles.button"),
-		tooltip    = AWL.Profiles:GetText("delete-character-profiles.tooltip"),
-		onClick    = ShowDeleteCharacterProfilesConfirmation
+	AWL.Profiles:AddSettingsSection(layout, {
+		useAccountProfile = function()
+			return Utils:IsAccountProfile()
+		end,
+		onSwitchProfile = function()
+			Utils:ToggleProfileMode()
+			ReloadUI()
+		end,
+		onDeleteCharacterProfiles = function()
+			Utils:ResetAllCharacterProfiles()
+			ReloadUI()
+		end
 	})
 
     layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.about"]))

@@ -20,7 +20,7 @@ L["options.tooltip.category.tooltip"] = "Zeigt bei Gegenständen im Tooltip die 
 L["options.tooltip.item-level.name"] = "Itemlevel anzeigen"
 L["options.tooltip.item-level.tooltip"] = "Zeigt bei Gegenständen im Tooltip das dazugehörige Itemlevel an."
 L["options.tooltip.blank-line.name"] = "Leerzeile einfügen"
-L["options.tooltip.blank-line.tooltip"] = "Fügt eine Leerzeile im Tooltip vor der Anzeige von Erweiterung und Kategorie ein."
+L["options.tooltip.blank-line.tooltip"] = "Fügt im Tooltip vor den zusätzlichen Gegenstandsinformationen eine Leerzeile ein."
 
 L["options.about"] = "Über"
 L["options.about.game-version"] = "Spielversion"
@@ -29,7 +29,7 @@ L["options.about.lib-version"] = "Bibliotheksversion"
 L["options.about.author"] = "Autor"
 
 L["options.about.button-github.name"] = "Feedback & Hilfe"
-L["options.about.button-github.tooltip"] = "Öffnet ein Popup-Fenster mit einem Link nach GitHub."
+L["options.about.button-github.tooltip"] = "Öffnet ein Popup-Fenster mit einem Link zu GitHub."
 L["options.about.button-github.button"] = "GitHub"
 
 -- General
