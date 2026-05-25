@@ -1,10 +1,8 @@
 local addonName, EXT = ...
 
--- local L = EXT.Localization
-
-local Utils = EXT.modules.Utils
 local Options = EXT.modules.Options
 local Tooltip = EXT.modules.Tooltip
+local Utils = EXT.modules.Utils
 
 --------------
 --- Frames ---
