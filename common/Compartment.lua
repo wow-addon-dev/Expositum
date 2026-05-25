@@ -21,15 +21,15 @@ function Expositum_CompartmentOnEnter(self, button)
 end
 
 function Expositum_CompartmentOnLeave()
-    GameTooltip:Hide()
+	GameTooltip:Hide()
 end
 
 function Expositum_CompartmentOnClick(_, button)
-    if button == "RightButton" then
+	if button == "RightButton" then
 		if not InCombatLockdown() then
 			Settings.OpenToCategory(EXT.MAIN_CATEGORY_ID)
 		else
 			Utils:PrintDebug("In combat. The options menu cannot be opened.")
 		end
-    end
+	end
 end

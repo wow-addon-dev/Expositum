@@ -1,9 +1,9 @@
 local _, EXT = ...
 
 EXT.Localization = setmetatable({},{__index=function(self,key)
-        geterrorhandler()("Expositum (Debug): Missing entry for '" .. tostring(key) .. "'")
-        return key
-    end})
+		geterrorhandler()("Expositum (Debug): Missing entry for '" .. tostring(key) .. "'")
+		return key
+	end})
 
 local L = EXT.Localization
 

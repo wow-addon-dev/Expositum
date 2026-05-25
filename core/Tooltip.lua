@@ -95,41 +95,41 @@ end
 ------------------------
 
 function Tooltip:Initialize()
-    if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then
-        local function OnTooltipSetItem(tooltip)
-            if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) then return end
+	if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then
+		local function OnTooltipSetItem(tooltip)
+			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) then return end
 
-            local _, link = tooltip:GetItem()
-            if link then
-                self:ProcessTooltipClassic(tooltip, link)
-            end
-        end
+			local _, link = tooltip:GetItem()
+			if link then
+				self:ProcessTooltipClassic(tooltip, link)
+			end
+		end
 
-        GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
-        ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
-        if ShoppingTooltip1 then ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
-        if ShoppingTooltip2 then ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
+		GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+		ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+		if ShoppingTooltip1 then ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
+		if ShoppingTooltip2 then ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem) end
 	elseif EXT.GAME_TYPE_MAINLINE then
-        TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
-            if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) or not data then return end
+		TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
+			if not tooltip or (tooltip.IsForbidden and tooltip:IsForbidden()) or not data then return end
 
-            local link = (data.hyperlink or data.link)
+			local link = (data.hyperlink or data.link)
 
-            if not link and data.guid and C_Item.GetItemLinkByGUID then
-                link = C_Item.GetItemLinkByGUID(data.guid)
-            end
+			if not link and data.guid and C_Item.GetItemLinkByGUID then
+				link = C_Item.GetItemLinkByGUID(data.guid)
+			end
 
-            if not link and data.id then
-                link = ("item:%d"):format(data.id)
-            end
+			if not link and data.id then
+				link = ("item:%d"):format(data.id)
+			end
 
-            if link then
-                self:ProcessTooltip(tooltip, link)
-            end
-        end)
-    else
-        Utils:PrintDebug("Unsupported game type.")
-    end
+			if link then
+				self:ProcessTooltip(tooltip, link)
+			end
+		end)
+	else
+		Utils:PrintDebug("Unsupported game type.")
+	end
 end
 
 function Tooltip:ProcessTooltipClassic(tooltip, itemLink)
