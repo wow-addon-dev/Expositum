@@ -4,9 +4,9 @@ local L = EXT.Localization
 
 local Utils = EXT.modules.Utils
 
-----------------------
---- Main Functions ---
-----------------------
+------------------------
+--- Public Functions ---
+------------------------
 
 function Expositum_CompartmentOnEnter(self, button)
 	GameTooltip:ClearAllPoints()

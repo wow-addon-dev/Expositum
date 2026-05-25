@@ -25,16 +25,6 @@ L["options.tooltip.item-level.tooltip"] = "Displays the corresponding item level
 L["options.tooltip.blank-line.name"] = "Insert Blank Line"
 L["options.tooltip.blank-line.tooltip"] = "Inserts a blank line before the additional item information in the tooltip."
 
-L["options.about"] = "About"
-L["options.about.game-version"] = "Game Version"
-L["options.about.addon-version"] = "Addon Version"
-L["options.about.lib-version"] = "Library Version"
-L["options.about.author"] = "Author"
-
-L["options.about.button-github.name"] = "Feedback & Help"
-L["options.about.button-github.tooltip"] = "Opens a popup window with a link to GitHub."
-L["options.about.button-github.button"] = "GitHub"
-
 -- General
 
 L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Right-click|r to open the options."

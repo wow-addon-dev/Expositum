@@ -28,9 +28,9 @@ local function SlashCommand(msg, editbox)
 	end
 end
 
-----------------------
---- Main Functions ---
-----------------------
+------------------------
+--- Public Functions ---
+------------------------
 
 function ExpositumFrame:OnEvent(event, ...)
     self[event](self, event, ...)

@@ -90,9 +90,9 @@ local function GetCategoryText(itemType, itemSubType)
 	return itemType
 end
 
-----------------------
---- Main Functions ---
-----------------------
+------------------------
+--- Public Functions ---
+------------------------
 
 function Tooltip:Initialize()
     if EXT.GAME_TYPE_VANILLA or EXT.GAME_TYPE_TBC or EXT.GAME_TYPE_MISTS then

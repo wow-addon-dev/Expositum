@@ -17,20 +17,10 @@ L["options.tooltip.expansion.name"] = "Erweiterung anzeigen"
 L["options.tooltip.expansion.tooltip"] = "Zeigt bei Gegenständen im Tooltip die dazugehörige Erweiterung an."
 L["options.tooltip.category.name"] = "Kategorie anzeigen"
 L["options.tooltip.category.tooltip"] = "Zeigt bei Gegenständen im Tooltip die dazugehörige Kategorie an."
-L["options.tooltip.item-level.name"] = "Itemlevel anzeigen"
-L["options.tooltip.item-level.tooltip"] = "Zeigt bei Gegenständen im Tooltip das dazugehörige Itemlevel an."
+L["options.tooltip.item-level.name"] = "Gegenstandsstufe anzeigen"
+L["options.tooltip.item-level.tooltip"] = "Zeigt bei Gegenständen im Tooltip die dazugehörige Gegenstandsstufe an."
 L["options.tooltip.blank-line.name"] = "Leerzeile einfügen"
 L["options.tooltip.blank-line.tooltip"] = "Fügt im Tooltip vor den zusätzlichen Gegenstandsinformationen eine Leerzeile ein."
-
-L["options.about"] = "Über"
-L["options.about.game-version"] = "Spielversion"
-L["options.about.addon-version"] = "Addonversion"
-L["options.about.lib-version"] = "Bibliotheksversion"
-L["options.about.author"] = "Autor"
-
-L["options.about.button-github.name"] = "Feedback & Hilfe"
-L["options.about.button-github.tooltip"] = "Öffnet ein Popup-Fenster mit einem Link zu GitHub."
-L["options.about.button-github.button"] = "GitHub"
 
 -- General
 
@@ -42,4 +32,4 @@ L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Rechtsklick|r zum Öffnen der 
 
 L["tooltip.expansion"] = "Erweiterung"
 L["tooltip.category"] = "Kategorie"
-L["tooltip.item-level"] = "Itemlevel"
+L["tooltip.item-level"] = "Gegenstandsstufe"

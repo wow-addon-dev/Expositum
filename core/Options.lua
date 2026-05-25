@@ -33,9 +33,9 @@ local minimapButtonProxy = setmetatable({}, {
     end,
 })
 
-----------------------
---- Main Functions ---
-----------------------
+------------------------
+--- Public Functions ---
+------------------------
 
 function Options:Initialize()
     local category, layout = Settings.RegisterVerticalLayoutCategory(addonName)
@@ -106,10 +106,9 @@ function Options:Initialize()
         default       = true
     })
 
-	AWL.Profiles:AddSettingsSection(layout, {
-		useAccountProfile = function()
-			return Utils:IsAccountProfile()
-		end,
+	-- Profiles Section
+	AWL.Settings:AddProfilesSection(layout, {
+		useAccountProfile = Utils:IsAccountProfile(),
 		onSwitchProfile = function()
 			Utils:ToggleProfileMode()
 			ReloadUI()
@@ -120,43 +119,14 @@ function Options:Initialize()
 		end
 	})
 
-    layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.about"]))
-
-    -- Game Version
-    AWL.Settings:AddInfoText(layout, {
-        leftText  = L["options.about.game-version"],
-        rightText = EXT.GAME_VERSION .. " (" .. EXT.GAME_FLAVOR .. ")",
-		height    = "compact"
-    })
-
-    -- Addon Version
-    AWL.Settings:AddInfoText(layout, {
-        leftText  = L["options.about.addon-version"],
-        rightText = EXT.ADDON_VERSION .. " (" .. EXT.ADDON_BUILD_DATE .. ")",
-		height    = "compact"
-    })
-
-    -- Library Version
-    AWL.Settings:AddInfoText(layout, {
-        leftText  = L["options.about.lib-version"],
-        rightText = AWL.ADDON_VERSION .. " (" .. AWL.ADDON_BUILD_DATE .. ")",
-		height    = "compact"
-    })
-
-    -- Author
-    AWL.Settings:AddInfoText(layout, {
-        leftText  = L["options.about.author"],
-        rightText = EXT.ADDON_AUTHOR
-    })
-
-    -- GitHub Link
-    AWL.Settings:AddButton(layout, {
-        name       = L["options.about.button-github.name"],
-        buttonText = L["options.about.button-github.button"],
-        tooltip    = L["options.about.button-github.tooltip"],
-        onClick    = function()
-			AWL.Dialogs:ShowLinkDialog(EXT.LINK_GITHUB)
-		end
+	-- About Section
+    AWL.Settings:AddAboutSection(layout, {
+        gameVersion    = EXT.GAME_VERSION,
+        gameFlavor     = EXT.GAME_FLAVOR,
+        addonVersion   = EXT.ADDON_VERSION,
+        addonBuildDate = EXT.ADDON_BUILD_DATE,
+        addonAuthor    = EXT.ADDON_AUTHOR,
+        githubLink     = EXT.LINK_GITHUB
     })
 
     Settings.RegisterAddOnCategory(category)
