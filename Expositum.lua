@@ -51,6 +51,6 @@ end
 ExpositumFrame:RegisterEvent("ADDON_LOADED")
 ExpositumFrame:SetScript("OnEvent", ExpositumFrame.OnEvent)
 
-SLASH_Expositum1, SLASH_Expositum2 = '/ext', '/Expositum'
+SLASH_Expositum1, SLASH_Expositum2 = '/ext', '/expositum'
 
 SlashCmdList["Expositum"] = SlashCommand
