@@ -1,3 +1,8 @@
+**v2.5 (2026-05-26)**
+- Changed: Expansion names now use localized names provided by the game client when available
+- Fixed: Tooltip lines can still be displayed when some item data is unavailable
+- Minor code adjustments
+
 **v2.4 (2026-05-24)**
 - Added: Profile settings with account profile and character profile selection
 - Added: TOC version for patch 12.0.7 [retail]
