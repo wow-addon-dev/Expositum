@@ -12,9 +12,9 @@ Expositum is a World of Warcraft addon that provides additional information abou
 
 ## Features
 
-* Displays the corresponding expansion of the item (optional)*.
-* Displays the item category (e.g., crafting materials, clothing, etc.) (optional).
-* Displays the item level (optional).
+* Displays the corresponding expansion of the item*.
+* Displays the item category (e.g., crafting materials, clothing, etc.).
+* Displays the item level.
 * Supports an account profile and character profiles.
 
 *\* The expansion can only be displayed in Retail.*

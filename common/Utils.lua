@@ -33,7 +33,9 @@ end
 ------------------------
 
 function Utils:PrintDebug(msg)
-	if EXT.settings.general["debug-mode"] then
+	local debugMode = EXT.settings and EXT.settings.general and EXT.settings.general["debug-mode"]
+
+	if debugMode ~= false then
 		DEFAULT_CHAT_FRAME:AddMessage(ORANGE_FONT_COLOR:WrapTextInColorCode(addonName .. " (Debug): ")  .. msg)
 	end
 end
@@ -81,6 +83,11 @@ end
 function Utils:InitializeDatabase()
 	local characterRealmKey = GetCharacterRealmKey()
 
+	local hadDb = Expositum_Options_v3 ~= nil
+	local createdDb = false
+	local createdProfile = false
+	local createdProfileKey = false
+
 	local defaults = {
 		["general"] = {
 			["minimap-button"] = {
@@ -96,10 +103,12 @@ function Utils:InitializeDatabase()
 			["profiles"] = {},
 			["profileKeys"] = {}
 		}
+		createdDb = true
 	end
 
 	if not Expositum_Options_v3.profiles[characterRealmKey] then
 		Expositum_Options_v3.profiles[characterRealmKey] = CopyTable(defaults)
+		createdProfile = true
 	end
 
 	if not Expositum_Options_v3.profileKeys[characterRealmKey] then
@@ -107,15 +116,23 @@ function Utils:InitializeDatabase()
 			["use-account"] = true,
 			["open-settings"] = false
 		}
+		createdProfileKey = true
 	end
 
-	if Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"] then
+	local useAccountProfile = Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"]
+
+	if useAccountProfile then
 		EXT.settings.general = Expositum_Options_v3.account["general"]
 		EXT.settings.tooltip = Expositum_Options_v3.account["tooltip"]
 	else
 		EXT.settings.general = Expositum_Options_v3.profiles[characterRealmKey]["general"]
 		EXT.settings.tooltip = Expositum_Options_v3.profiles[characterRealmKey]["tooltip"]
 	end
+
+	self:PrintDebug(string.format(
+		"InitializeDatabase: key=%s, hadDb=%s, createdDb=%s, createdProfile=%s, createdProfileKey=%s, activeProfile=%s",
+		characterRealmKey, tostring(hadDb), tostring(createdDb), tostring(createdProfile), tostring(createdProfileKey), useAccountProfile and "account" or "character"
+	))
 end
 
 function Utils:InitializeMinimapButton()
