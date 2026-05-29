@@ -33,10 +33,8 @@ end
 ------------------------
 
 function Utils:PrintDebug(msg)
-	local debugMode = EXT.settings and EXT.settings.general and EXT.settings.general["debug-mode"]
-
-	if debugMode ~= false then
-		DEFAULT_CHAT_FRAME:AddMessage(ORANGE_FONT_COLOR:WrapTextInColorCode(addonName .. " (Debug): ")  .. msg)
+	if EXT.settings.general["debug-mode"] then
+		DEFAULT_CHAT_FRAME:AddMessage(ORANGE_FONT_COLOR:WrapTextInColorCode(addonName .. " (Debug): ") .. msg)
 	end
 end
 
@@ -83,8 +81,6 @@ end
 function Utils:InitializeDatabase()
 	local characterRealmKey = GetCharacterRealmKey()
 
-	local hadDb = Expositum_Options_v3 ~= nil
-	local createdDb = false
 	local createdProfile = false
 	local createdProfileKey = false
 
@@ -103,7 +99,6 @@ function Utils:InitializeDatabase()
 			["profiles"] = {},
 			["profileKeys"] = {}
 		}
-		createdDb = true
 	end
 
 	if not Expositum_Options_v3.profiles[characterRealmKey] then
@@ -129,16 +124,18 @@ function Utils:InitializeDatabase()
 		EXT.settings.tooltip = Expositum_Options_v3.profiles[characterRealmKey]["tooltip"]
 	end
 
-	self:PrintDebug(string.format(
-		"InitializeDatabase: key=%s, hadDb=%s, createdDb=%s, createdProfile=%s, createdProfileKey=%s, activeProfile=%s",
-		characterRealmKey, tostring(hadDb), tostring(createdDb), tostring(createdProfile), tostring(createdProfileKey), useAccountProfile and "account" or "character"
-	))
+	return {
+		characterRealmKey = characterRealmKey,
+		createdProfile = createdProfile,
+		createdProfileKey = createdProfileKey,
+		activeProfile = useAccountProfile and "account" or "character"
+	}
 end
 
 function Utils:InitializeMinimapButton()
-	local LDB = LibStub("LibDataBroker-1.1"):NewDataObject("Expositum", {
+	local LDB = LibStub("LibDataBroker-1.1"):NewDataObject(addonName, {
 		type     = "launcher",
-		text     = "Expositum",
+		text     = addonName,
 		icon     = EXT.MEDIA_PATH .. "icon-round.blp",
 		OnClick  = function(self, button)
 			if button == "RightButton" then
@@ -158,7 +155,7 @@ function Utils:InitializeMinimapButton()
 	})
 
 	self.minimapButton = LibStub("LibDBIcon-1.0")
-	self.minimapButton:Register("Expositum", LDB, EXT.settings.general["minimap-button"])
+	self.minimapButton:Register(addonName, LDB, EXT.settings.general["minimap-button"])
 end
 
 EXT.modules.Utils = Utils
