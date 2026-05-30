@@ -1,3 +1,6 @@
+**v2.6 (2026-05-30)**
+- Minor code adjustments
+
 **v2.5 (2026-05-26)**
 - Changed: Expansion names now use localized names provided by the game client when available
 - Fixed: Tooltip lines can still be displayed when some item data is unavailable
