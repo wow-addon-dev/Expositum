@@ -121,11 +121,10 @@ function Options:Initialize()
 
 	-- About Section
 	AWL.Settings:AddAboutSection(layout, {
-		gameVersion    = EXT.GAME_VERSION,
-		gameFlavor     = EXT.GAME_FLAVOR,
 		addonVersion   = EXT.ADDON_VERSION,
 		addonBuildDate = EXT.ADDON_BUILD_DATE,
 		addonAuthor    = EXT.ADDON_AUTHOR,
+		curseforgeLink = EXT.LINK_CURSEFORGE,
 		githubLink     = EXT.LINK_GITHUB
 	})
 
