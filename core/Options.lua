@@ -2,9 +2,10 @@ local addonName, EXT = ...
 
 local L = EXT.Localization
 
-local Utils = EXT.modules.Utils
-
 local AWL = ArcaneWizardLibrary
+local Addon = AWL:GetAddon(addonName)
+
+local Utils = EXT.modules.Utils
 
 local Options = {}
 
@@ -65,7 +66,7 @@ function Options:Initialize()
 	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
 
 		-- Expansion Check
-	if EXT.GAME_TYPE_MAINLINE then
+	if AWL.GAME_TYPE_MAINLINE then
 		AWL.Settings:AddCheckbox(category, {
 			variableTable = EXT.settings.tooltip,
 			settingKey    = addonName .. "_expansion",
@@ -120,17 +121,11 @@ function Options:Initialize()
 	})
 
 	-- About Section
-	AWL.Settings:AddAboutSection(layout, {
-		addonVersion   = EXT.ADDON_VERSION,
-		addonBuildDate = EXT.ADDON_BUILD_DATE,
-		addonAuthor    = EXT.ADDON_AUTHOR,
-		curseforgeLink = EXT.LINK_CURSEFORGE,
-		githubLink     = EXT.LINK_GITHUB
-	})
+	AWL.Settings:AddAboutSection(layout, addonName)
 
 	Settings.RegisterAddOnCategory(category)
 
-	EXT.MAIN_CATEGORY_ID = category:GetID()
+	Addon:SetMainCategoryId(category:GetID())
 end
 
 EXT.modules.Options = Options

@@ -4,6 +4,9 @@ local Options = EXT.modules.Options
 local Tooltip = EXT.modules.Tooltip
 local Utils = EXT.modules.Utils
 
+local AWL = ArcaneWizardLibrary
+local Addon = AWL:GetAddon(addonName)
+
 --------------
 --- Frames ---
 --------------
@@ -16,11 +19,7 @@ local ExpositumFrame = CreateFrame("Frame", "Expositum")
 
 local function SlashCommand(msg, editbox)
 	if not msg or strtrim(msg) == "" then
-		if not InCombatLockdown() then
-			Settings.OpenToCategory(EXT.MAIN_CATEGORY_ID)
-		else
-			Utils:PrintDebug("In combat. The options menu cannot be opened.")
-		end
+		Addon:OpenCategory()
 	else
 		Utils:PrintDebug("No arguments will be accepted.")
 	end
