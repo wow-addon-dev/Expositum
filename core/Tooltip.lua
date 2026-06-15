@@ -3,7 +3,7 @@ local _, EXT = ...
 local AWL = ArcaneWizardLibrary
 
 local L = EXT.Localization
-local Utils = EXT.modules.Utils
+local Utils = EXT.Modules.Utils
 
 local Tooltip = {}
 
@@ -139,15 +139,15 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	local _, _, _, itemLevel, _, itemType, itemSubType, _, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
 
 	local expansionName = GetExpansionName(expansionID)
-	local showExpansion = EXT.settings.tooltip["expansion"] and expansionName
-	local showCategory = EXT.settings.tooltip["category"] and itemType ~= nil
-	local showItemLevel = EXT.settings.tooltip["item-level"] and itemLevel ~= nil
+	local showExpansion = EXT.Settings.tooltip["expansion"] and expansionName
+	local showCategory = EXT.Settings.tooltip["category"] and itemType ~= nil
+	local showItemLevel = EXT.Settings.tooltip["item-level"] and itemLevel ~= nil
 
 	if not (showExpansion or showCategory or showItemLevel) then return end
 
 	local lineState = GetTooltipLineState(tooltip, itemLink)
 
-	if EXT.settings.tooltip["blank-line"] then
+	if EXT.Settings.tooltip["blank-line"] then
 		AddBlankLine(tooltip, lineState)
 	end
 
@@ -164,4 +164,4 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	end
 end
 
-EXT.modules.Tooltip = Tooltip
+EXT.Modules.Tooltip = Tooltip

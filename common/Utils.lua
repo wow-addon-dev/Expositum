@@ -106,11 +106,11 @@ function Utils:InitializeDatabase()
 	local useAccountProfile = Expositum_Options_v3.profileKeys[characterRealmKey]["use-account"]
 
 	if useAccountProfile then
-		EXT.settings.general = Expositum_Options_v3.account["general"]
-		EXT.settings.tooltip = Expositum_Options_v3.account["tooltip"]
+		EXT.Settings.general = Expositum_Options_v3.account["general"]
+		EXT.Settings.tooltip = Expositum_Options_v3.account["tooltip"]
 	else
-		EXT.settings.general = Expositum_Options_v3.profiles[characterRealmKey]["general"]
-		EXT.settings.tooltip = Expositum_Options_v3.profiles[characterRealmKey]["tooltip"]
+		EXT.Settings.general = Expositum_Options_v3.profiles[characterRealmKey]["general"]
+		EXT.Settings.tooltip = Expositum_Options_v3.profiles[characterRealmKey]["tooltip"]
 	end
 
 	return {
@@ -123,9 +123,9 @@ end
 
 function Utils:InitializeMinimapButton()
 	self.minimapButton = Addon:RegisterMinimapButton({
-		db = EXT.settings.general["minimap-button"],
+		db = EXT.Settings.general["minimap-button"],
 		tooltip = L["minimap-button.tooltip"]
 	})
 end
 
-EXT.modules.Utils = Utils
+EXT.Modules.Utils = Utils
