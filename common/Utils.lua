@@ -1,9 +1,9 @@
 local addonName, EXT = ...
 
-local L = EXT.Localization
-
 local AWL = ArcaneWizardLibrary
 local Addon = AWL:GetAddon(addonName)
+
+local L = EXT.Localization
 
 local Utils = {}
 

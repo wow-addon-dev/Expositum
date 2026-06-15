@@ -1,11 +1,11 @@
 local addonName, EXT = ...
 
+local AWL = ArcaneWizardLibrary
+local Addon = AWL:GetAddon(addonName)
+
 local Options = EXT.modules.Options
 local Tooltip = EXT.modules.Tooltip
 local Utils = EXT.modules.Utils
-
-local AWL = ArcaneWizardLibrary
-local Addon = AWL:GetAddon(addonName)
 
 --------------
 --- Frames ---
