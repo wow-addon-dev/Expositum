@@ -21,7 +21,7 @@ local function SlashCommand(msg, editbox)
 	if not msg or strtrim(msg) == "" then
 		Addon:OpenCategory()
 	else
-		Utils:PrintDebug("No arguments will be accepted.")
+		Addon:PrintDebug("No arguments will be accepted.")
 	end
 end
 
@@ -43,11 +43,11 @@ function ExpositumFrame:ADDON_LOADED(_, addOnName)
 
 		Utils:OpenSettingsOnLoading()
 
-		Utils:PrintDebug(string.format(
+		Addon:PrintDebug(string.format(
 			"InitializeDatabase: key=%s, createdProfile=%s, createdProfileKey=%s, activeProfile=%s",
 			tostring(dbInit.characterRealmKey), tostring(dbInit.createdProfile), tostring(dbInit.createdProfileKey), tostring(dbInit.activeProfile)
 		))
-		Utils:PrintDebug("Addon fully loaded.")
+		Addon:PrintDebug("Addon fully loaded.")
 	end
 end
 
