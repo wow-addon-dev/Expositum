@@ -1,8 +1,10 @@
 local addonName, EXT = ...
 
+-- Library
 local AWL = ArcaneWizardLibrary
 local Addon = AWL:GetAddon(addonName)
 
+-- Module imports
 local Options = EXT.Modules.Options
 local Tooltip = EXT.Modules.Tooltip
 local Utils = EXT.Modules.Utils

@@ -1,18 +1,22 @@
 local addonName, EXT = ...
 
+-- Library
 local AWL = ArcaneWizardLibrary
 local Addon = AWL:GetAddon(addonName)
 
+-- Localization
 local L = EXT.Localization
 
-local Tooltip = {}
+-- Current module
+local Tooltip = EXT.Modules.Tooltip
+
+-- Variables
+local tooltipLineStates = setmetatable({}, { __mode = "k" })
+local tooltipResetHooks = setmetatable({}, { __mode = "k" })
 
 -----------------------
 --- Local Functions ---
 -----------------------
-
-local tooltipLineStates = setmetatable({}, { __mode = "k" })
-local tooltipResetHooks = setmetatable({}, { __mode = "k" })
 
 local function ResetTooltipLineState(tooltip)
 	tooltipLineStates[tooltip] = nil
@@ -92,7 +96,7 @@ local function GetCategoryText(itemType, itemSubType)
 end
 
 ------------------------
---- Public Functions ---
+--- Module Functions ---
 ------------------------
 
 function Tooltip:Initialize()
@@ -163,5 +167,3 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 		AddDoubleLine(tooltip, lineState, "item-level", L["tooltip.item-level"], "|cnWHITE_FONT_COLOR:" .. itemLevel .. "|r")
 	end
 end
-
-EXT.Modules.Tooltip = Tooltip

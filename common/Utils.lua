@@ -1,14 +1,17 @@
 local addonName, EXT = ...
 
+-- Library
 local AWL = ArcaneWizardLibrary
 local Addon = AWL:GetAddon(addonName)
 
+-- Localization
 local L = EXT.Localization
 
-local Utils = {}
+-- Current module
+local Utils = EXT.Modules.Utils
 
 ------------------------
---- Public Functions ---
+--- Module Functions ---
 ------------------------
 
 function Utils:PrintMessage(msg)
@@ -111,5 +114,3 @@ function Utils:InitializeMinimapButton()
 		tooltip = L["minimap-button.tooltip"]
 	})
 end
-
-EXT.Modules.Utils = Utils
