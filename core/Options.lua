@@ -46,22 +46,22 @@ function Options:Initialize()
 
 	-- Minimap Button
 	AWL.Settings:AddCheckbox(category, {
-		variableTable = minimapButtonProxy,
-		settingKey    = addonName .. "_hide",
-		variableName  = "hide",
-		name          = L["options.general.minimap-button.name"],
-		tooltip       = L["options.general.minimap-button.tooltip"],
-		default       = true
+		variableTable	= minimapButtonProxy,
+		settingKey		= addonName .. "_hide",
+		variableName	= "hide",
+		name			= L["options.general.minimap-button.name"],
+		tooltip			= L["options.general.minimap-button.tooltip"],
+		default			= true
 	})
 
 	-- Debug Mode
 	AWL.Settings:AddCheckbox(category, {
-		variableTable = EXT.Settings.general,
-		settingKey    = addonName .. "_debug-mode",
-		variableName  = "debug-mode",
-		name          = L["options.general.debug-mode.name"],
-		tooltip       = L["options.general.debug-mode.tooltip"],
-		default       = false
+		variableTable	= EXT.Settings.general,
+		settingKey		= addonName .. "_debug-mode",
+		variableName	= "debug-mode",
+		name			= L["options.general.debug-mode.name"],
+		tooltip			= L["options.general.debug-mode.tooltip"],
+		default			= false
 	})
 
 	layout:AddInitializer(CreateSettingsListSectionHeaderInitializer(L["options.tooltip"]))
@@ -69,53 +69,53 @@ function Options:Initialize()
 		-- Expansion Check
 	if AWL.GAME_TYPE_MAINLINE then
 		AWL.Settings:AddCheckbox(category, {
-			variableTable = EXT.Settings.tooltip,
-			settingKey    = addonName .. "_expansion",
-			variableName  = "expansion",
-			name          = L["options.tooltip.expansion.name"],
-			tooltip       = L["options.tooltip.expansion.tooltip"],
-			default       = true
+			variableTable	= EXT.Settings.tooltip,
+			settingKey		= addonName .. "_expansion",
+			variableName	= "expansion",
+			name			= L["options.tooltip.expansion.name"],
+			tooltip			= L["options.tooltip.expansion.tooltip"],
+			default			= true
 		})
 	end
 
 	-- Category
 	AWL.Settings:AddCheckbox(category, {
-		variableTable = EXT.Settings.tooltip,
-		settingKey    = addonName .. "_category",
-		variableName  = "category",
-		name          = L["options.tooltip.category.name"],
-		tooltip       = L["options.tooltip.category.tooltip"],
-		default       = true
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_category",
+		variableName	= "category",
+		name			= L["options.tooltip.category.name"],
+		tooltip			= L["options.tooltip.category.tooltip"],
+		default			= true
 	})
 
 	-- Item Level
 	AWL.Settings:AddCheckbox(category, {
-		variableTable = EXT.Settings.tooltip,
-		settingKey    = addonName .. "_item-level",
-		variableName  = "item-level",
-		name          = L["options.tooltip.item-level.name"],
-		tooltip       = L["options.tooltip.item-level.tooltip"],
-		default       = true
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_item-level",
+		variableName	= "item-level",
+		name			= L["options.tooltip.item-level.name"],
+		tooltip			= L["options.tooltip.item-level.tooltip"],
+		default			= true
 	})
 
 	-- Blank Line
 	AWL.Settings:AddCheckbox(category, {
-		variableTable = EXT.Settings.tooltip,
-		settingKey    = addonName .. "_blank-line",
-		variableName  = "blank-line",
-		name          = L["options.tooltip.blank-line.name"],
-		tooltip       = L["options.tooltip.blank-line.tooltip"],
-		default       = true
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_blank-line",
+		variableName	= "blank-line",
+		name			= L["options.tooltip.blank-line.name"],
+		tooltip			= L["options.tooltip.blank-line.tooltip"],
+		default			= true
 	})
 
 	-- Profiles Section
 	AWL.Settings:AddProfilesSection(layout, {
-		useAccountProfile = Utils:IsAccountProfile(),
-		onSwitchProfile = function()
+		useAccountProfile			= Utils:IsAccountProfile(),
+		onSwitchProfile				= function()
 			Utils:ToggleProfileMode()
 			ReloadUI()
 		end,
-		onDeleteCharacterProfiles = function()
+		onDeleteCharacterProfiles	= function()
 			Utils:ResetAllCharacterProfiles()
 			ReloadUI()
 		end
