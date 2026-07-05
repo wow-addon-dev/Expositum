@@ -2,10 +2,12 @@ local addonName, EXT = ...
 
 -- Library
 local AWL = ArcaneWizardLibrary
-local Addon = AWL:GetAddon(addonName)
 
 -- Localization
 local L = EXT.Localization
+
+-- Module imports
+local Utils = EXT.Modules.Utils
 
 -- Current module
 local Tooltip = EXT.Modules.Tooltip
@@ -133,7 +135,7 @@ function Tooltip:Initialize()
 			end
 		end)
 	else
-		Addon:PrintDebug("Unsupported game type.")
+		Utils:PrintDebug("Unsupported game type.")
 	end
 end
 

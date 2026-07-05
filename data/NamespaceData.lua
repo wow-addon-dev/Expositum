@@ -11,8 +11,4 @@ EXT.Modules.Utils = EXT.Modules.Utils or {}
 
 local AWL = ArcaneWizardLibrary
 
-AWL:NewAddon(addonName, {
-	debugEnabled = function()
-		return EXT.Settings.general and EXT.Settings.general["debug-mode"]
-	end
-})
+AWL:NewAddon(addonName)

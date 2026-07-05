@@ -21,9 +21,11 @@ local ExpositumFrame = CreateFrame("Frame", "Expositum")
 
 local function SlashCommand(msg, editbox)
 	if not msg or strtrim(msg) == "" then
-		Addon:OpenCategory()
+		if not Addon:OpenCategory() then
+			Utils:PrintDebug("In combat. The options menu cannot be opened.")
+		end
 	else
-		Addon:PrintDebug("No arguments will be accepted.")
+		Utils:PrintDebug("No arguments will be accepted.")
 	end
 end
 
@@ -45,11 +47,11 @@ function ExpositumFrame:ADDON_LOADED(_, addOnName)
 
 		Utils:OpenSettingsOnLoading()
 
-		Addon:PrintDebug(string.format(
+		Utils:PrintDebug(string.format(
 			"InitializeDatabase: key=%s, createdProfile=%s, createdProfileKey=%s, activeProfile=%s",
 			tostring(dbInit.characterRealmKey), tostring(dbInit.createdProfile), tostring(dbInit.createdProfileKey), tostring(dbInit.activeProfile)
 		))
-		Addon:PrintDebug("Addon fully loaded.")
+		Utils:PrintDebug("Addon fully loaded.")
 	end
 end
 
