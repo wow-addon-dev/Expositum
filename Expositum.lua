@@ -1,9 +1,5 @@
 local addonName, EXT = ...
 
--- Library
-local AWL = ArcaneWizardLibrary
-local Addon = AWL:GetAddon(addonName)
-
 -- Module imports
 local Options = EXT.Modules.Options
 local Tooltip = EXT.Modules.Tooltip
@@ -21,9 +17,7 @@ local ExpositumFrame = CreateFrame("Frame", "Expositum")
 
 local function SlashCommand(msg, editbox)
 	if not msg or strtrim(msg) == "" then
-		if not Addon:OpenCategory() then
-			Utils:PrintDebug("In combat. The options menu cannot be opened.")
-		end
+		Utils:OpenSettings()
 	else
 		Utils:PrintDebug("No arguments will be accepted.")
 	end
