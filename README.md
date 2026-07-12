@@ -10,6 +10,12 @@ Expositum is a World of Warcraft addon that provides additional information abou
 
 * **Tooltip Enhancements** - Instantly reveals the corresponding expansion, category, and item level of an item at a glance.
 
+## Installation & Quick Start
+
+> ⚠️ **Required Dependency:** This addon requires the **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install it manually, please ensure the library is also downloaded and enabled.
+
+To open the addon options menu, type `/ext` or `/expositum` into your chat and press enter.
+
 ## Features
 
 * Displays the corresponding expansion of the item*.
@@ -23,12 +29,6 @@ Expositum is a World of Warcraft addon that provides additional information abou
 
 * Languages: English, German, Russian
 * Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Retail
-
-## Installation & Quick Start
-
-> ⚠️ **Required Dependency:** This addon requires the **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install it manually, please ensure the library is also downloaded and enabled.
-
-To open the addon options menu, type `/ext` or `/expositum` into your chat and press enter.
 
 ## Bugs & Feedback
 
