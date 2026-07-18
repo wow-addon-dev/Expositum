@@ -28,9 +28,9 @@ local minimapButtonProxy = setmetatable({}, {
 		EXT.Settings.general["minimap-button"]["hide"] = not value
 
 		if value then
-			Utils.minimapButton:Show("Expositum")
+			Utils.minimapButton:Show(addonName)
 		else
-			Utils.minimapButton:Hide("Expositum")
+			Utils.minimapButton:Hide(addonName)
 		end
 	end,
 })
