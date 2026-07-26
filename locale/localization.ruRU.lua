@@ -17,6 +17,8 @@ L["options.tooltip.expansion.name"] = "Показывать дополнение
 L["options.tooltip.expansion.tooltip"] = "Отображает соответствующее дополнение для предметов во всплывающей подсказке."
 L["options.tooltip.category.name"] = "Показывать категорию"
 L["options.tooltip.category.tooltip"] = "Отображает соответствующую категорию для предметов во всплывающей подсказке."
+L["options.tooltip.rarity.name"] = "Показывать редкость"
+L["options.tooltip.rarity.tooltip"] = "Отображает соответствующую редкость предметов во всплывающей подсказке."
 L["options.tooltip.item-level.name"] = "Показывать уровень предмета"
 L["options.tooltip.item-level.tooltip"] = "Отображает соответствующий уровень предмета для предметов во всплывающей подсказке."
 L["options.tooltip.blank-line.name"] = "Вставить пустую строку"
@@ -32,4 +34,5 @@ L["minimap-button.tooltip"] = "|cnLINK_FONT_COLOR:Щелкните правой 
 
 L["tooltip.expansion"] = "Дополнение"
 L["tooltip.category"] = "Категория"
+L["tooltip.rarity"] = "Редкость"
 L["tooltip.item-level"] = "Уровень предмета"

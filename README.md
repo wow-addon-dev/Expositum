@@ -8,7 +8,7 @@ Expositum is a World of Warcraft addon that provides additional information abou
 
 **Key Feature**
 
-* **Tooltip Enhancements** - Instantly reveals the corresponding expansion, category, and item level of an item at a glance.
+* **Tooltip Enhancements** - Instantly reveals the corresponding expansion, category, rarity, and item level of an item at a glance.
 
 ## Installation & Quick Start
 
@@ -18,8 +18,9 @@ To open the addon options menu, type `/ext` or `/expositum` into your chat and p
 
 ## Features
 
-* Displays the corresponding expansion of the item*.
+* Displays the corresponding expansion with a color-coded abbreviation badge for the item*.
 * Displays the item category (e.g., crafting materials, clothing, etc.).
+* Displays the item rarity in its corresponding quality color.
 * Displays the item level.
 * Supports an account profile and character profiles.
 

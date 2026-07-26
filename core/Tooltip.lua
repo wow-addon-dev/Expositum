@@ -89,12 +89,45 @@ local function GetExpansionName(expansionID)
 	return nil
 end
 
+local function GetExpansionText(expansionID, expansionName)
+	local expansionText = "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r"
+	local expansionBadge = EXT.EXPANSION_BADGES[expansionID]
+
+	if expansionBadge and expansionBadge.texture then
+		return ("|T%s:16:32|t %s"):format(expansionBadge.texture, expansionText)
+	end
+
+	return expansionText
+end
+
 local function GetCategoryText(itemType, itemSubType)
 	if itemSubType and itemSubType ~= "" then
 		return itemType .. " (" .. itemSubType .. ")"
 	end
 
 	return itemType
+end
+
+local function GetRarityText(itemQuality)
+	if itemQuality == nil then return nil end
+
+	local qualityName = _G["ITEM_QUALITY" .. itemQuality .. "_DESC"]
+
+	if not qualityName then return nil end
+
+	local qualityColor = ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[itemQuality]
+
+	if qualityColor and type(qualityColor.hex) == "string" then
+		local colorCode = qualityColor.hex
+
+		if colorCode:sub(1, 2) ~= "|c" then
+			colorCode = "|c" .. colorCode
+		end
+
+		return colorCode .. qualityName .. "|r"
+	end
+
+	return "|cnWHITE_FONT_COLOR:" .. qualityName .. "|r"
 end
 
 ------------------------
@@ -142,14 +175,16 @@ end
 function Tooltip:ProcessTooltip(tooltip, itemLink)
 	if not itemLink then return end
 
-	local _, _, _, itemLevel, _, itemType, itemSubType, _, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
+	local _, _, itemQuality, itemLevel, _, itemType, itemSubType, _, _, _, _, _, _, _, expansionID = C_Item.GetItemInfo(itemLink)
 
 	local expansionName = GetExpansionName(expansionID)
+	local rarityText = GetRarityText(itemQuality)
 	local showExpansion = EXT.Settings.tooltip["expansion"] and expansionName
 	local showCategory = EXT.Settings.tooltip["category"] and itemType ~= nil
+	local showRarity = EXT.Settings.tooltip["rarity"] and rarityText
 	local showItemLevel = EXT.Settings.tooltip["item-level"] and itemLevel ~= nil
 
-	if not (showExpansion or showCategory or showItemLevel) then return end
+	if not (showExpansion or showCategory or showRarity or showItemLevel) then return end
 
 	local lineState = GetTooltipLineState(tooltip, itemLink)
 
@@ -158,11 +193,15 @@ function Tooltip:ProcessTooltip(tooltip, itemLink)
 	end
 
 	if showExpansion then
-		AddDoubleLine(tooltip, lineState, "expansion", L["tooltip.expansion"], "|cnWHITE_FONT_COLOR:" .. expansionName .. "|r")
+		AddDoubleLine(tooltip, lineState, "expansion", L["tooltip.expansion"], GetExpansionText(expansionID, expansionName))
 	end
 
 	if showCategory then
 		AddDoubleLine(tooltip, lineState, "category", L["tooltip.category"], "|cnWHITE_FONT_COLOR:" .. GetCategoryText(itemType, itemSubType) .. "|r")
+	end
+
+	if showRarity then
+		AddDoubleLine(tooltip, lineState, "rarity", L["tooltip.rarity"], rarityText)
 	end
 
 	if showItemLevel then

@@ -88,6 +88,16 @@ function Options:Initialize()
 		default			= true
 	})
 
+	-- Rarity
+	AWL.Settings:AddCheckbox(category, {
+		variableTable	= EXT.Settings.tooltip,
+		settingKey		= addonName .. "_rarity",
+		variableName	= "rarity",
+		name			= L["options.tooltip.rarity.name"],
+		tooltip			= L["options.tooltip.rarity.tooltip"],
+		default			= true
+	})
+
 	-- Item Level
 	AWL.Settings:AddCheckbox(category, {
 		variableTable	= EXT.Settings.tooltip,
