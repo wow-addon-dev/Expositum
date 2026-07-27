@@ -6,7 +6,7 @@ _Reveal an item's origin and purpose._
 
 Expositum is a World of Warcraft addon that provides additional information about items directly in the tooltip.
 
-> ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See [Installation & Quick Start](#installation--quick-start) for installation details.
+> ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See Installation & Quick Start for installation details.
 
 **Key Feature**
 
@@ -14,9 +14,9 @@ Expositum is a World of Warcraft addon that provides additional information abou
 
 ## Features
 
-* ![New](https://raw.githubusercontent.com/wow-addon-dev/.github/main/assets/badges/new.png) Displays the corresponding expansion with a color-coded abbreviation badge for the item*.
+* <sup>✨ NEW</sup> Displays the corresponding expansion with a color-coded abbreviation badge for the item*.
 * Displays the item category (e.g., crafting materials, clothing, etc.).
-* ![New](https://raw.githubusercontent.com/wow-addon-dev/.github/main/assets/badges/new.png) Displays the item rarity in its corresponding quality color.
+* <sup>✨ NEW</sup> Displays the item rarity in its corresponding quality color.
 * Displays the item level.
 * Supports an account profile and character profiles.
 
