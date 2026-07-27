@@ -6,21 +6,17 @@ _Reveal an item's origin and purpose._
 
 Expositum is a World of Warcraft addon that provides additional information about items directly in the tooltip.
 
+> ⚠️ **Important!** This addon requires **Arcane Wizard: Library**. See [Installation & Quick Start](#installation--quick-start) for installation details.
+
 **Key Feature**
 
 * **Tooltip Enhancements** - Instantly reveals the corresponding expansion, category, rarity, and item level of an item at a glance.
 
-## Installation & Quick Start
-
-> ⚠️ **Required Dependency:** This addon requires the **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install the addon manually, via Wago, or through another third-party updater that does not resolve dependencies, you must download and enable the library separately.
-
-To open the addon options menu, type `/ext` or `/expositum` into your chat and press enter.
-
 ## Features
 
-* Displays the corresponding expansion with a color-coded abbreviation badge for the item*.
+* ![New](https://raw.githubusercontent.com/wow-addon-dev/.github/main/assets/badges/new.png) Displays the corresponding expansion with a color-coded abbreviation badge for the item*.
 * Displays the item category (e.g., crafting materials, clothing, etc.).
-* Displays the item rarity in its corresponding quality color.
+* ![New](https://raw.githubusercontent.com/wow-addon-dev/.github/main/assets/badges/new.png) Displays the item rarity in its corresponding quality color.
 * Displays the item level.
 * Supports an account profile and character profiles.
 
@@ -30,6 +26,12 @@ To open the addon options menu, type `/ext` or `/expositum` into your chat and p
 
 * Languages: English, German, Russian
 * Flavors: Classic, Burning Crusade - Classic Anniversary Edition, Mists of Pandaria - Classic, Retail
+
+## Installation & Quick Start
+
+> **Required Dependency:** This addon requires the **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install the addon manually, via Wago, or through another third-party updater that does not resolve dependencies, you must download and enable the library separately.
+
+To open the addon options menu, type `/ext` or `/expositum` into your chat and press enter.
 
 ## Bugs & Feedback
 
