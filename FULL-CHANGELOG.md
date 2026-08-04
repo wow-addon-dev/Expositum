@@ -1,3 +1,6 @@
+**v2.19 (2026-08-04)**
+- Minor code adjustments
+
 **v2.18 (2026-07-28)**
 - Added: TOC version for patch 1.15.9 [classic]
 - Added: Item rarity and color-coded expansion badges are now displayed
