@@ -1,7 +1,7 @@
 local addonName, EXT = ...
 
 -- Enable only for releases with new features or important changes.
-EXT.SHOW_UPDATE_NOTICE = true
+EXT.SHOW_UPDATE_NOTICE = false
 
 local expansionBadgePath = "Interface\\AddOns\\" .. addonName .. "\\assets\\expansion-badges\\"
 
