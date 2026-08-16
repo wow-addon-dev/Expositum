@@ -125,31 +125,12 @@ function Utils:InitializeDatabase()
 		EXT.Settings.tooltip = Expositum_Options_v3.profiles[characterRealmKey]["tooltip"]
 	end
 
-	if not Expositum_Options_v3["update-notice"] then
-		Expositum_Options_v3["update-notice"] = {}
-	end
-
-	EXT.Data.updateNotice = Expositum_Options_v3["update-notice"]
-
 	return {
 		characterRealmKey = characterRealmKey,
 		createdProfile = createdProfile,
 		createdProfileKey = createdProfileKey,
 		activeProfile = useAccountProfile and "account" or "character"
 	}
-end
-
-function Utils:InitializeUpdateNotice()
-	local data = EXT.Data.updateNotice
-
-	if data.lastVersion ~= Addon.version then
-		data.lastVersion = Addon.version
-		data.show = EXT.SHOW_UPDATE_NOTICE
-	end
-
-	if Addon:ShowUpdateNotice(data.show == true) then
-		data.show = false
-	end
 end
 
 function Utils:InitializeMinimapButton()
