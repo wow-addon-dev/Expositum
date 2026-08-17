@@ -1,5 +1,8 @@
 local addonName, EXT = ...
 
+-- Library
+local AWL = ArcaneWizardLibrary
+
 -- Module imports
 local Options = EXT.Modules.Options
 local Tooltip = EXT.Modules.Tooltip
@@ -20,6 +23,8 @@ local function SlashCommand(msg)
 
 	if command == "" then
 		Utils:OpenSettings()
+	elseif command == "changelog" then
+		AWL.Frames:OpenChangelog(addonName, EXT.CHANGELOG)
 	else
 		Utils:PrintDebug("No arguments will be accepted.")
 	end

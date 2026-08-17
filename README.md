@@ -31,7 +31,9 @@ Expositum is a World of Warcraft addon that provides additional information abou
 
 > **Required Dependency:** This addon requires the **Arcane Wizard: Library**. If you install Expositum via the CurseForge client, the library will be downloaded automatically. If you install the addon manually, via Wago, or through another third-party updater that does not resolve dependencies, you must download and enable the library separately.
 
-To open the addon options menu, type `/ext` or `/expositum` into your chat and press enter.
+To manage the addon, use the following commands in your chat and press enter:
+* Type `/ext` or `/expositum` to access the addon options menu.
+* Type `/ext changelog` or `/expositum changelog` to open the changelog.
 
 ## Bugs & Feedback
 
